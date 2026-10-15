@@ -1,0 +1,1801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Osha Autotech · Digital mobility for Africa</title>
+<meta name="description" content="Osha Autotech: motorcycles, workshops, parts and the Osha Prepayment System for Zimbabwe's riders and transport owners.">
+<meta name="theme-color" content="#070B18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+/* ============================================================
+   OSHA · design system v2
+   Clean light surfaces, deep "night-ride" dark bands, one
+   red→blue brand gradient, mono labels for the techy layer.
+   ============================================================ */
+:root{
+  --red:#E3122F; --red-ink:#C00A25; --red-2:#FF3D5A; --blue:#2F6BFF; --blue-2:#5B8CFF; --cyan:#22D3EE; --violet:#7C5CFF;
+  --bg:#F6F7FB; --surface:#FFFFFF; --surface-solid:#FFFFFF; --sunk:#EEF1F7; --fg:#0A1020; --muted:#5A6378; --line:#E2E6EF;
+  --night:#060A16; --night-2:#0B1226;
+  --good:#0E9F5B; --bad:#D81A35; --plate:#FFD84A; --plate-ink:#111;
+  --grad:linear-gradient(110deg,#FF3D5A 0%,#E3122F 28%,#7C5CFF 66%,#2F6BFF 100%);
+  --grad-soft:linear-gradient(135deg,color-mix(in srgb,#E3122F 10%,transparent),color-mix(in srgb,#2F6BFF 10%,transparent));
+  --f-display:"Space Grotesk","Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-hero:var(--f-display);
+  --f-body:"Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r-sm:10px; --r:12px; --r-lg:20px; --r-xl:28px;
+  --sh-1:0 1px 2px rgba(10,20,50,.05),0 10px 30px -18px rgba(10,20,50,.25);
+  --sh-2:0 40px 80px -40px rgba(10,20,60,.45);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --hdr:68px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --red:#FF3D5A; --red-ink:#FF5A72; --blue:#6B93FF; --blue-2:#8AABFF;
+  --bg:#080C1A; --surface:#0E1528; --surface-solid:#0E1528; --sunk:#141C33; --fg:#EAF0FF; --muted:#9AA6C4; --line:#1E2944;
+  --good:#3FD28A; --bad:#FF5A6B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --red:#FF3D5A; --red-ink:#FF5A72; --blue:#6B93FF; --blue-2:#8AABFF;
+  --bg:#080C1A; --surface:#0E1528; --surface-solid:#0E1528; --sunk:#141C33; --fg:#EAF0FF; --muted:#9AA6C4; --line:#1E2944;
+  --good:#3FD28A; --bad:#FF5A6B; color-scheme:dark}
+
+/* dark "night" bands: re-map the tokens so every child adapts */
+.dark{--bg:var(--night);--fg:#EEF2FF;--muted:#A0ABCA;--line:rgba(150,170,255,.14);--surface:rgba(255,255,255,.045);--surface-solid:#0C1328;--sunk:rgba(255,255,255,.07);
+  --red:#FF3D5A;--blue:#6B93FF;--good:#3FD28A;--bad:#FF6B7C;background:var(--night);color:var(--fg);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.65 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
+a{color:inherit}
+em{font-style:normal}
+::selection{background:color-mix(in srgb,var(--red) 30%,transparent)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-size:clamp(2.1rem,4.4vw,3.6rem);font-weight:700}
+h3{font-size:1.5rem;font-weight:700}
+p{margin:0}
+.grad-text,h1 em,h2 em{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 8s ease-in-out infinite alternate}
+@keyframes gradShift{to{background-position:100% 0}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;justify-self:start;font:600 .74rem/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--grad)}
+.lede{font-size:1.12rem;color:var(--muted);max-width:62ch}
+.sec{padding-block:clamp(72px,10vw,128px);position:relative}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(36px,5vw,60px);max-width:780px}
+.stripe{height:4px;background:var(--grad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 1rem/1 var(--f-body);letter-spacing:-.005em;
+  padding:15px 24px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;overflow:hidden;isolation:isolate;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-red{background:linear-gradient(135deg,#FF3D5A,#E3122F 55%,#B8001F);color:#fff;box-shadow:0 10px 24px -12px rgba(227,18,47,.8),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-red:hover{box-shadow:0 18px 34px -14px rgba(227,18,47,.9),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-red::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn-red:hover::after{transform:translateX(120%)}
+.btn-ghost{border-color:var(--line);background:var(--surface);color:var(--fg)}
+.btn-ghost:hover{border-color:var(--fg)}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+.plate{display:inline-block;font:600 .78rem/1 var(--f-mono);letter-spacing:.1em;background:var(--plate);color:var(--plate-ink);
+  padding:6px 9px 5px;border-radius:6px;border:1.5px solid #111;box-shadow:inset 0 0 0 2px var(--plate)}
+.chip{display:inline-block;font:600 .7rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:99px;
+  background:var(--sunk);color:var(--muted);border:1px solid var(--line)}
+.soon{background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue);border-color:color-mix(in srgb,var(--blue) 30%,transparent)}
+ul.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.ticks li{position:relative;padding-left:30px}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.28em;width:18px;height:18px;border-radius:50%;
+  background:color-mix(in srgb,var(--red) 14%,transparent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23E3122F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5'/%3E%3C/svg%3E") center/12px no-repeat}
+
+/* cursor spotlight on cards */
+.tile,.bike,.plan,.way,.pillar,.evc,.benefit,.ev-bike,.problem,.mvg article,.prod,.app{position:relative}
+.tile::after,.bike::after,.plan::after,.way::after,.pillar::after,.evc::after,.benefit::after,.ev-bike::after,.problem::after,.mvg article::after,.prod::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;z-index:3;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--red) 9%,transparent),transparent 45%)}
+.tile:hover::after,.bike:hover::after,.plan:hover::after,.way:hover::after,.pillar:hover::after,.evc:hover::after,.benefit:hover::after,.ev-bike:hover::after,.problem:hover::after,.mvg article:hover::after,.prod:hover::after{opacity:1}
+
+/* scroll progress */
+.progress-bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:100;background:var(--grad);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+
+/* ============ header ============ */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:color-mix(in srgb,var(--bg) 78%,transparent);
+  backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid transparent;transition:background-color .35s,border-color .35s,box-shadow .35s}
+.hdr.scrolled{border-bottom-color:var(--line);box-shadow:0 10px 30px -24px rgba(10,20,50,.5)}
+.hdr.over-hero{--fg:#EEF2FF;--muted:#B7C1DD;--line:rgba(150,170,255,.14);--surface-solid:#0B1226;background:color-mix(in srgb,var(--night) 70%,transparent);color:var(--fg)}
+.nav{display:flex;align-items:center;gap:24px;height:var(--hdr)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.brand img{height:26px;width:auto}
+.brand span{font:600 .7rem/1.1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:12px}
+.links{display:flex;gap:4px;margin:0 0 0 auto;list-style:none;padding:0}
+.links a{position:relative;display:block;white-space:nowrap;font:500 .94rem/1 var(--f-body);text-decoration:none;color:var(--muted);padding:10px 12px;border-radius:99px;transition:color .2s,background-color .2s}
+.links a:hover{color:var(--fg);background:color-mix(in srgb,var(--fg) 6%,transparent)}
+.links a.on{color:var(--fg)}
+.links a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;border-radius:2px;background:var(--grad)}
+.nav .btn{padding:11px 18px;font-size:.93rem}
+.nav>.btn{flex-shrink:0}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:12px;width:44px;height:44px;cursor:pointer;color:var(--fg)}
+.burger i{display:block;width:20px;height:2px;background:currentColor;margin:4px auto;border-radius:2px;transition:transform .3s var(--ease),opacity .2s}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:1180px){
+  .burger{display:block}
+  .nav>.btn{display:none}
+  .links{position:absolute;left:12px;right:12px;top:calc(100% + 8px);flex-direction:column;gap:2px;margin:0;background:var(--surface-solid);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:var(--sh-2);
+    transform-origin:top center;animation:menuIn .3s var(--ease)}
+  .links a{padding:14px 16px;font-size:1.02rem;border-radius:12px}
+  .links a.on::after{display:none}
+  .links a.on{background:color-mix(in srgb,var(--red) 10%,transparent)}
+  .links:not(.open){display:none}
+}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px) scale(.98)}}
+
+/* ============ hero ============ */
+.hero{position:relative;overflow:hidden;isolation:isolate;min-height:100svh;display:flex;align-items:center;margin-top:calc(-1 * var(--hdr));padding-block:calc(var(--hdr) + clamp(32px,5vw,72px)) clamp(48px,6vw,72px)}
+.hero>.wrap{width:100%}
+.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.hero-bg .grid{position:absolute;inset:-60px;background-image:linear-gradient(rgba(140,160,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(140,160,255,.08) 1px,transparent 1px);background-size:56px 56px;
+  -webkit-mask:radial-gradient(ellipse 70% 60% at 60% 40%,#000 20%,transparent 75%);mask:radial-gradient(ellipse 70% 60% at 60% 40%,#000 20%,transparent 75%);animation:gridPan 24s linear infinite}
+@keyframes gridPan{to{transform:translate(56px,56px)}}
+.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
+.hero-bg .o1{width:520px;height:520px;left:-120px;top:-140px;background:#E3122F;animation:float1 16s ease-in-out infinite}
+.hero-bg .o2{width:600px;height:600px;right:-160px;top:10%;background:#2F6BFF;opacity:.5;animation:float2 20s ease-in-out infinite}
+.hero-bg .o3{width:380px;height:380px;left:40%;bottom:-200px;background:#7C5CFF;opacity:.4;animation:float1 22s ease-in-out infinite reverse}
+@keyframes float1{50%{transform:translate(80px,60px) scale(1.1)}}
+@keyframes float2{50%{transform:translate(-90px,40px) scale(.92)}}
+.hero-bg .streak{position:absolute;height:2px;width:240px;border-radius:2px;background:linear-gradient(90deg,transparent,#FF3D5A,transparent);opacity:0;animation:streak 6s linear infinite}
+.hero-bg .streak.s2{background:linear-gradient(90deg,transparent,#5B8CFF,transparent);animation-delay:2.2s;animation-duration:7s}
+.hero-bg .streak.s3{animation-delay:4.1s;animation-duration:5.5s}
+@keyframes streak{0%{transform:translateX(-30vw);opacity:0}10%{opacity:.9}60%{opacity:.9}100%{transform:translateX(130vw);opacity:0}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center}
+.pill{display:inline-flex;flex-wrap:wrap;row-gap:6px;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:99px;border:1px solid var(--line);background:var(--surface);
+  font:500 .85rem/1 var(--f-body);color:var(--muted);backdrop-filter:blur(8px)}
+.pill b{color:var(--fg);font-weight:600;display:inline-block;min-width:5.5ch}
+.pill .sep{width:1px;height:14px;background:var(--line)}
+.dot{width:8px;height:8px;border-radius:50%;background:#3FD28A;box-shadow:0 0 0 0 rgba(63,210,138,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(63,210,138,0)}100%{box-shadow:0 0 0 0 rgba(63,210,138,0)}}
+.rot{transition:opacity .3s,transform .3s var(--ease)}
+.rot.out{opacity:0;transform:translateY(6px)}
+.hero h1{font-size:clamp(2.6rem,5.2vw,4.9rem);font-weight:700;line-height:.98;letter-spacing:-.035em;margin-top:22px}
+.hero .lede{margin-top:24px;font-size:clamp(1.05rem,1.4vw,1.2rem)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-art{position:relative;min-width:0;perspective:1200px}
+.hero-art .frame{position:relative;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .5s var(--ease)}
+.hero-art .photo{position:relative;border-radius:var(--r-xl);overflow:hidden;background:#1a2340;aspect-ratio:5/4;padding:1px;
+  box-shadow:0 50px 100px -40px rgba(47,107,255,.55),0 30px 60px -30px rgba(227,18,47,.5)}
+.hero-art .photo::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,255,255,.5),rgba(255,255,255,0) 40%,rgba(91,140,255,.6));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:2;pointer-events:none}
+.hero-art .photo img{width:100%;height:100%;object-fit:cover;border-radius:calc(var(--r-xl) - 1px);animation:kenburns 18s ease-in-out infinite alternate}
+@keyframes kenburns{to{transform:scale(1.07) translate(-1.5%,-1%)}}
+.hero-art .scan{position:absolute;inset:0;border-radius:var(--r-xl);overflow:hidden;pointer-events:none;z-index:1}
+.hero-art .scan::after{content:"";position:absolute;left:0;right:0;height:30%;background:linear-gradient(transparent,rgba(91,140,255,.18),transparent);animation:scan 5s ease-in-out infinite}
+@keyframes scan{0%{top:-30%}100%{top:100%}}
+.float{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:rgba(12,19,40,.72);border:1px solid rgba(150,170,255,.2);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#EEF2FF;box-shadow:0 20px 40px -20px rgba(0,0,0,.6);font:500 .85rem/1.25 var(--f-body);transform:translateZ(60px)}
+.float small{display:block;font:500 .7rem/1.2 var(--f-mono);letter-spacing:.06em;color:#A0ABCA;text-transform:uppercase}
+.float b{font:700 1rem/1.1 var(--f-display)}
+.float .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+.float .ic svg{width:18px;height:18px}
+.float.f1{left:-22px;bottom:30px;animation:bob 6s ease-in-out infinite}
+.float.f2{right:-18px;top:28px;animation:bob 7s ease-in-out -2s infinite}
+.float.f3{right:22px;bottom:-20px;animation:bob 6.5s ease-in-out -4s infinite}
+@keyframes bob{50%{translate:0 -10px}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(40px,5vw,60px)}
+.stat{padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:var(--surface);display:grid;gap:6px;min-width:0}
+.stat b{font:700 clamp(1.9rem,3.4vw,2.7rem)/1 var(--f-display);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.stat b .u{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat>span{font-size:.9rem;color:var(--muted);line-height:1.4}
+@media (max-width:900px){
+  .hero{min-height:0}
+  .pill .sep{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .float.f1{left:10px}.float.f2{right:10px}.float.f3{display:none}
+  .stats{grid-template-columns:1fr 1fr}
+}
+@media (max-width:420px){.float.f2{display:none}}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.tile{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:start;padding:18px;border-radius:18px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--fg);
+  transition:transform .3s var(--ease),border-color .3s,background-color .3s,box-shadow .3s;min-width:0}
+.tile:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--red) 60%,transparent);background:color-mix(in srgb,var(--red) 6%,var(--surface));box-shadow:0 24px 40px -28px rgba(227,18,47,.7)}
+.tile svg{width:44px;height:44px;padding:9px;border-radius:12px;color:var(--red);background:color-mix(in srgb,var(--red) 14%,transparent);transition:transform .35s var(--ease)}
+.tile:hover svg{transform:rotate(-6deg) scale(1.06)}
+.tile.ev svg{color:var(--blue);background:color-mix(in srgb,var(--blue) 16%,transparent)}
+.tile.ev:hover{border-color:color-mix(in srgb,var(--blue) 60%,transparent);background:color-mix(in srgb,var(--blue) 7%,var(--surface));box-shadow:0 24px 40px -28px rgba(47,107,255,.8)}
+.tile .tt{display:grid;gap:4px;min-width:0}
+.tile b{font:600 1.12rem/1.15 var(--f-display);letter-spacing:-.01em}
+.tile .tt span{color:var(--muted);font-size:.9rem;line-height:1.45}
+.tile .go{font:600 1.2rem/1 var(--f-body);color:var(--muted);transition:transform .3s var(--ease),color .3s}
+.tile:hover .go{transform:translateX(4px);color:var(--red)}
+.tile.fam{grid-column:1/-1;background:linear-gradient(120deg,color-mix(in srgb,#E3122F 18%,var(--surface)),var(--surface) 60%);border-color:color-mix(in srgb,#E3122F 35%,var(--line))}
+@media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.tiles{grid-template-columns:1fr}.tile{padding:14px}}
+
+/* ticker */
+.ticker{position:relative;overflow:hidden;background:var(--grad);color:#fff;padding:14px 0;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ticker-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;white-space:nowrap;font:600 1.05rem/1 var(--f-display);letter-spacing:.01em}
+.ticker-track span i{width:7px;height:7px;border-radius:2px;background:#fff;opacity:.7;transform:rotate(45deg)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ============ mission ============ */
+.band{padding-block:clamp(56px,8vw,96px)}
+.mvg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:mvg}
+.mvg article{counter-increment:mvg;padding:clamp(24px,3vw,36px);border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);display:grid;gap:12px;align-content:start;min-width:0;box-shadow:var(--sh-1);overflow:hidden}
+.mvg article::before{content:"0" counter(mvg);position:absolute;right:18px;top:12px;font:700 3.2rem/1 var(--f-display);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--line)}
+.mvg h3{font-size:1.65rem;position:relative;padding-right:56px}
+.mvg p{color:var(--muted);position:relative}
+@media (max-width:860px){.mvg{grid-template-columns:1fr}}
+
+/* ============ ecosystem ============ */
+.eco{display:grid;grid-template-columns:290px 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+.eco-tabs{display:grid;gap:6px;position:sticky;top:96px}
+.eco-tabs button{all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;border:1px solid transparent;
+  font:600 1.15rem/1.1 var(--f-display);letter-spacing:-.01em;color:var(--muted);transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.eco-tabs button small{font:500 .72rem/1 var(--f-mono);color:var(--muted);letter-spacing:.06em;min-width:24px;padding:6px;border-radius:8px;background:var(--sunk);text-align:center}
+.eco-tabs button:hover{color:var(--fg);transform:translateX(3px)}
+.eco-tabs button[aria-selected="true"]{color:var(--fg);background:var(--surface);border-color:var(--line);box-shadow:var(--sh-1)}
+.eco-tabs button[aria-selected="true"] small{background:var(--grad);color:#fff}
+.eco-tabs button:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.eco-panel{display:grid;grid-template-columns:1.1fr .9fr;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;min-height:420px;box-shadow:var(--sh-1);animation:panelIn .5s var(--ease)}
+@keyframes panelIn{from{opacity:.4;transform:translateY(8px)}}
+.eco-panel .txt{padding:clamp(24px,3vw,40px);display:grid;gap:18px;align-content:start;min-width:0}
+.eco-panel h3{font-size:clamp(1.8rem,3vw,2.4rem)}
+.eco-panel .pic{background:var(--sunk);min-height:220px;overflow:hidden}
+.eco-panel .pic img{width:100%;height:100%;object-fit:cover;animation:kenburns 14s ease-in-out infinite alternate}
+.eco-more{grid-column:1/-1;border-top:1px solid var(--line);padding:clamp(22px,3vw,40px);display:grid;gap:32px;background:var(--bg)}
+.eco-more h4{font:600 .74rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.eco-grid.c2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:560px){.eco-grid.c2{grid-template-columns:1fr}}
+.eco-grid div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:5px;align-content:start;min-width:0;transition:border-color .25s,transform .25s var(--ease)}
+.eco-grid div:hover{border-color:color-mix(in srgb,var(--red) 45%,var(--line));transform:translateY(-2px)}
+.eco-grid b{font:600 1.08rem/1.15 var(--f-display)}
+.eco-grid span{color:var(--muted);font-size:.93rem;line-height:1.5}
+.eco-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;counter-reset:st}
+.eco-steps li{counter-increment:st;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;padding:16px 18px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.eco-steps li::before{content:counter(st);display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--grad);color:#fff;font:700 1.1rem/1 var(--f-display)}
+.eco-steps b{display:block;font:600 1.08rem/1.15 var(--f-display)}
+.eco-steps span{color:var(--muted);font-size:.93rem}
+.eco-cta{display:flex;flex-wrap:wrap;gap:12px}
+.earn{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:16px;border-top:1px dashed var(--line)}
+.earn>span:first-child{font:600 .72rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+@media (max-width:980px){.eco{grid-template-columns:1fr}.eco-tabs{position:static;grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .eco-tabs button{font-size:1rem;padding:12px 14px}.eco-tabs button:hover{transform:none}}
+@media (max-width:680px){.eco-panel{grid-template-columns:1fr}.eco-panel .pic{order:-1;aspect-ratio:16/9;min-height:0}.eco-more{order:3}}
+
+/* ============ motorcycles ============ */
+.range{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.bike{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px;display:grid;gap:14px;align-content:start;overflow:hidden;min-width:0;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s}
+.bike:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.bike.feat{grid-column:1/-1;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);padding:0;gap:0;align-items:stretch}
+.bike.feat .ph{background:var(--sunk);min-height:340px;overflow:hidden;position:relative}
+.bike.feat .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.bike:hover .ph img{transform:scale(1.06)}
+.bike.feat .ph.white{background:radial-gradient(circle at 50% 60%,#fff,#E6E9F0)}
+.bike.feat .ph.white img{object-fit:contain}
+.bike.feat.rev .ph{order:2}
+.bike.feat.rev .cc{display:none}
+.bike.flag{border:1.5px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box;box-shadow:0 40px 80px -40px rgba(227,18,47,.5)}
+.bike.flag .ph{min-height:420px}
+.bike.flag .ph.white img{object-fit:cover}
+.bike .tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flagchip{background:var(--grad);color:#fff;border-color:transparent}
+.bike.feat .b{padding:clamp(24px,3.4vw,44px);display:grid;gap:16px;align-content:center;position:relative;z-index:1}
+.bike h3,.bike.feat h3{font-size:clamp(2.2rem,4vw,3.2rem);letter-spacing:-.035em;line-height:1}
+.bike.flag h3{font-size:clamp(2.8rem,5vw,4.4rem)}
+.bike .plate{justify-self:start}
+.bike .cc{font:700 7rem/.8 var(--f-display);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px var(--line);position:absolute;right:16px;bottom:10px;pointer-events:none;z-index:0}
+.bike p{color:var(--muted);position:relative}
+.bike .for{display:flex;flex-wrap:wrap;gap:6px;position:relative;margin-top:2px}
+.range-foot{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.feature-img{border-radius:var(--r-xl);overflow:hidden;position:relative;min-height:280px;background:var(--sunk)}
+.feature-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.feature-img:hover img{transform:scale(1.05)}
+.feature-img figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 24px 20px;color:#fff;background:linear-gradient(transparent,rgba(4,8,20,.88));font:600 1.4rem/1.15 var(--f-display)}
+.feature-img figcaption small{display:block;font:400 .95rem/1.45 var(--f-body);color:#D6DCEA;margin-top:6px}
+@media (max-width:760px){.range{grid-template-columns:1fr}.bike.feat{grid-template-columns:1fr}.bike.feat.rev .ph{order:0}.bike.feat .ph,.bike.flag .ph{min-height:0;aspect-ratio:8/7}.bike .cc{display:none}}
+@media (max-width:620px){.range-foot{grid-template-columns:1fr}}
+
+/* platforms (kept for completeness) */
+.apps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.app{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;display:grid;gap:16px;align-content:start;min-width:0}
+
+/* ============ prepayment ============ */
+.pp{overflow:hidden;isolation:isolate}
+.pp::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(50% 60% at 85% 30%,rgba(47,107,255,.28),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(227,18,47,.22),transparent 70%)}
+.pp::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(150,170,255,.18) 1px,transparent 1px);background-size:26px 26px;
+  -webkit-mask:linear-gradient(180deg,#000,transparent 70%);mask:linear-gradient(180deg,#000,transparent 70%)}
+.pp-hero{display:grid;grid-template-columns:1fr 320px;gap:clamp(24px,5vw,80px);align-items:center}
+.pp-tag{font:700 clamp(1.5rem,3vw,2.3rem)/1.08 var(--f-display);letter-spacing:-.02em;margin-top:22px}
+.pp-tag span{display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.phone{position:relative;justify-self:center;width:min(300px,78vw);border-radius:44px;padding:10px;background:#03060E;
+  box-shadow:0 0 0 1px rgba(150,170,255,.25),0 0 0 7px rgba(255,255,255,.03),0 40px 90px -20px rgba(47,107,255,.6);animation:bob 7s ease-in-out infinite}
+.phone::before{content:"";position:absolute;top:18px;left:50%;width:84px;height:22px;margin-left:-42px;border-radius:20px;background:#03060E;z-index:2}
+.phone img{border-radius:34px;width:100%}
+.phone::after{content:"";position:absolute;inset:-40px;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(47,107,255,.35),transparent 65%);animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{opacity:.5;transform:scale(.92)}}
+.relate{margin-top:32px;border-left:3px solid var(--red);padding:14px 18px;border-radius:0 14px 14px 0;background:var(--surface);color:var(--muted);max-width:70ch}
+.relate b{color:var(--fg);font-weight:600}
+.problems{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(48px,6vw,80px)}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:grid;align-content:start;min-width:0;transition:transform .35s var(--ease),border-color .3s}
+.problem:hover{transform:translateY(-4px);border-color:rgba(150,170,255,.35)}
+.problem .ph{aspect-ratio:5/3;background:#111a35;overflow:hidden}
+.problem .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.05);transition:transform .9s var(--ease),filter .5s}
+.problem:hover .ph img{transform:scale(1.06);filter:saturate(1)}
+.problem .ph.icon{display:grid;place-items:center}
+.problem .ph.icon svg{animation:spinSlow 18s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.problem div.t{padding:16px 18px 20px;display:grid;gap:6px}
+.problem h4{font-size:1.2rem}
+.problem p{color:var(--muted);font-size:.94rem}
+.problem .bar{height:3px}
+@media (max-width:980px){.problems{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.pp-hero{grid-template-columns:1fr}}
+@media (max-width:520px){.problems{grid-template-columns:1fr}}
+
+/* how it works */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.steps button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start;padding:16px 18px;border-radius:18px;border:1px solid transparent;
+  transition:background-color .25s,border-color .25s,box-shadow .25s}
+.steps button:hover{background:var(--surface)}
+.steps button[aria-selected="true"]{background:var(--surface);border-color:var(--line);box-shadow:var(--sh-1)}
+.steps button:focus-visible{outline:3px solid var(--blue)}
+.steps .n{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--sunk);font:700 1.4rem/1 var(--f-display);color:var(--muted);font-variant-numeric:tabular-nums;transition:background .3s,color .3s}
+.steps button[aria-selected="true"] .n{background:var(--grad);color:#fff;box-shadow:0 10px 20px -10px rgba(227,18,47,.8)}
+.steps h4{font-size:1.25rem;padding-top:12px}
+.steps p{color:var(--muted);font-size:.96rem;margin-top:6px;animation:fadeUp .4s var(--ease)}
+.steps button:not([aria-selected="true"]) p{display:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}}
+.stage{position:relative;aspect-ratio:1;max-width:480px;width:100%;justify-self:center;border-radius:var(--r-xl);background:#fff;border:1px solid var(--line);overflow:hidden;box-shadow:var(--sh-2)}
+.stage img{width:100%;height:100%;object-fit:cover;transition:filter .5s}
+.stage::after{content:"";position:absolute;left:0;right:0;top:0;height:40%;pointer-events:none;background:linear-gradient(transparent,rgba(47,107,255,.14),transparent);animation:scan 4s ease-in-out infinite}
+.stage .lock{position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:8px;font:600 .76rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;border-radius:99px;color:#fff;z-index:2;animation:fadeUp .35s var(--ease)}
+.stage .lock.on{background:#0E9F5B;box-shadow:0 0 0 6px rgba(14,159,91,.2)}.stage .lock.off{background:#D81A35;box-shadow:0 0 0 6px rgba(216,26,53,.2)}
+.stage .cap{position:absolute;left:12px;right:12px;bottom:12px;padding:14px 18px;border-radius:14px;background:rgba(8,14,32,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font:600 1rem/1.2 var(--f-display);z-index:2}
+@media (max-width:860px){.how{grid-template-columns:1fr}.stage{order:-1;max-width:400px}}
+
+/* features + benefits */
+.features{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:clamp(56px,7vw,96px)}
+.features div{padding:20px;border-radius:18px;background:var(--surface);border:1px solid var(--line);display:grid;gap:8px;align-content:start;min-width:0;position:relative;overflow:hidden}
+.features div::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--grad);transform:scaleX(.25);transform-origin:left;transition:transform .5s var(--ease)}
+.features div:hover::before{transform:scaleX(1)}
+.features h4{font-size:1.15rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.features p{color:var(--muted);font-size:.93rem}
+@media (max-width:1080px){.features{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.features{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.features{grid-template-columns:1fr}}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(40px,6vw,64px)}
+.benefit{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0;transition:transform .4s var(--ease),box-shadow .4s}
+.benefit:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.benefit .ph{aspect-ratio:16/9;overflow:hidden;background:var(--sunk)}
+.benefit .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.benefit:hover .ph img{transform:scale(1.06)}
+.benefit .b{padding:24px;display:grid;gap:12px;align-content:start}
+.benefit h3{font-size:1.45rem}
+.benefit .sub{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.benefits{grid-template-columns:1fr}}
+
+/* calculator (legacy) */
+.field{display:grid;gap:7px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+
+/* ============ community ============ */
+.belong{overflow:hidden;background:radial-gradient(60% 70% at 50% 0%,color-mix(in srgb,var(--red) 9%,transparent),transparent 70%),var(--bg)}
+.belong .eyebrow{justify-self:center}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.way{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(24px,3vw,34px);display:grid;gap:12px;align-content:start;min-width:0;box-shadow:var(--sh-1);transition:transform .4s var(--ease),box-shadow .4s}
+.way:hover{transform:translateY(-6px);box-shadow:var(--sh-2)}
+.way .who{justify-self:start;font:600 .7rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);padding:7px 10px;border-radius:99px;background:color-mix(in srgb,var(--red) 10%,transparent)}
+.way h3{font-size:1.45rem;line-height:1.15}
+.way p{color:var(--muted)}
+.way .btn{justify-self:start;margin-top:8px}
+.towns{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin-top:32px}
+.towns span{font:600 .72rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.towns b{font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);transition:transform .25s var(--ease),border-color .25s,color .25s}
+.towns b:hover{transform:translateY(-2px);border-color:var(--red);color:var(--red)}
+@media (max-width:860px){.ways{grid-template-columns:1fr}}
+
+/* ============ enquiry dialogs ============ */
+dialog.enq-d{border:0;padding:0;border-radius:24px;width:min(460px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;background:var(--surface-solid);color:var(--fg);box-shadow:0 40px 100px -20px rgba(0,0,0,.55)}
+dialog.enq-d[open]{animation:dlgIn .35s var(--ease)}
+@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}}
+dialog.enq-d::backdrop{background:rgba(4,8,20,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.enq-d form{padding:24px;display:grid;gap:14px}
+.enq-d header{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.enq-d h3{font-size:1.9rem;margin-top:6px}
+.enq-d .x{all:unset;cursor:pointer;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;font-size:1.4rem;color:var(--muted);flex-shrink:0;transition:background-color .2s,transform .3s var(--ease)}
+.enq-d .x:hover{background:var(--sunk);transform:rotate(90deg)}
+.enq-d .x:focus-visible{outline:3px solid var(--blue)}
+.enq-d .btn{justify-content:center}
+
+/* ============ form primitives ============ */
+.fld{display:grid;gap:6px}
+.fld label,.fld legend{font:600 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0}
+.fld input,.fld select,.fld textarea,.enq-d .fld input,.enq-d .fld select{font:500 1rem var(--f-body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;transition:border-color .2s,box-shadow .2s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 18%,transparent)}
+.fld input[type=date]{color-scheme:inherit}
+fieldset.fld{border:0;margin:0;padding:0}
+.fld legend{margin-bottom:8px}
+.two-f{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.two-f{grid-template-columns:1fr}}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:center;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;background:var(--surface);transition:border-color .2s,background-color .2s,transform .2s var(--ease)}
+.opt:hover{border-color:color-mix(in srgb,var(--red) 40%,var(--line))}
+.fld .opt{font:400 1rem/1.4 var(--f-body);letter-spacing:0;text-transform:none;color:var(--fg)}
+.opt:has(input:checked){border-color:var(--red);background:color-mix(in srgb,var(--red) 7%,var(--surface))}
+.opt:has(input:disabled){opacity:.5;cursor:not-allowed}
+.opt input{accent-color:var(--red);width:18px;height:18px;margin:0}
+.opt b{font:600 1.02rem/1.15 var(--f-display)}
+.opt small{display:block;color:var(--muted);font-size:.85rem}
+.opt .amt{margin-left:auto;font:600 .95rem var(--f-mono);white-space:nowrap}
+.opt .amt.muted{color:var(--muted);font-weight:500;font-size:.82rem}
+.opt:has(input:disabled) .amt{visibility:hidden}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots label,.fld .slots label{display:flex;gap:7px;align-items:center;border:1.5px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer;font:500 .92rem/1.2 var(--f-body);letter-spacing:0;text-transform:none;color:var(--fg);background:var(--surface);transition:border-color .2s,background-color .2s}
+.slots label:has(input:checked){border-color:var(--red);background:color-mix(in srgb,var(--red) 8%,var(--surface))}
+.slots input{accent-color:var(--red);margin:0}
+.nav-f{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.nav-f .btn{padding:13px 20px}
+.ferr{color:var(--bad);font-size:.9rem;min-height:1.2em}
+.summary{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.summary div{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);font-size:.95rem}
+.summary div:last-child{border-bottom:0;background:var(--sunk);font-weight:700}
+.summary span:first-child{color:var(--muted)}
+.summary span:last-child{text-align:right;font-variant-numeric:tabular-nums;min-width:0;overflow-wrap:anywhere}
+.ref{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:16px;border-radius:14px;background:linear-gradient(120deg,#0B1226,#1B1F4A);color:#EEF2FF}
+.ref small{font:600 .7rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#A0ABCA}
+.ref b{font:600 1.2rem var(--f-mono);letter-spacing:.06em;color:#fff}
+.done-box{display:grid;gap:10px;padding:16px;border-radius:14px;border:1px solid color-mix(in srgb,var(--good) 45%,transparent);background:color-mix(in srgb,var(--good) 10%,transparent);font-size:.95rem;animation:fadeUp .4s var(--ease)}
+.done-box a{font-weight:700;color:var(--fg)}
+.fine{font-size:.85rem;color:var(--muted)}
+.progress{display:flex;gap:6px;align-items:center;font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.progress span{margin-right:6px}
+.progress i{flex:1;height:5px;border-radius:5px;background:var(--line);position:relative;overflow:hidden}
+.progress i::after{content:"";position:absolute;inset:0;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.progress i.done::after{transform:scaleX(1)}
+
+/* ============ booking ============ */
+.book{container-type:inline-size;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(16px,3vw,28px);display:grid;gap:18px;scroll-margin-top:90px}
+.book-head h3{font-size:clamp(1.7rem,3vw,2.2rem);margin-top:8px}
+.book-head p{color:var(--muted);font-size:.95rem;max-width:60ch;margin-top:6px}
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:18px;align-items:start}
+@container (max-width:760px){.book-grid{grid-template-columns:1fr}.est{position:static!important}}
+.book-form{display:grid;gap:16px;min-width:0}
+.est{position:sticky;top:90px;border:1px solid var(--line);border-radius:18px;background:var(--bg);overflow:hidden}
+.est h4{margin:0;padding:14px 16px;border-bottom:1px solid var(--line);font:600 1.1rem/1 var(--f-display)}
+.est .el{display:flex;justify-content:space-between;gap:10px;padding:9px 16px;font-size:.9rem;border-bottom:1px dashed var(--line)}
+.est .el span:last-child{font:600 .86rem var(--f-mono);white-space:nowrap}
+.est .et{display:flex;justify-content:space-between;padding:14px 16px;font-weight:700;background:var(--sunk)}
+.est .et span:last-child{font-family:var(--f-mono)}
+.est p{padding:10px 16px;font-size:.8rem;color:var(--muted);margin:0}
+.est .upsell{border-top:1px solid var(--line);font-size:.84rem;color:var(--fg)}
+.est .upsell a{color:var(--red);font-weight:600}
+
+/* ============ shop ============ */
+.shop{container-type:inline-size;display:grid;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(18px,3vw,28px);position:relative}
+.shop-head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between}
+.shop-head h3{font-size:clamp(1.7rem,3vw,2.2rem);margin-top:8px}
+.shop-head p{color:var(--muted);font-size:.95rem;max-width:52ch;margin-top:6px}
+.stores{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.store{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:2px;min-width:0;background:var(--bg)}
+.store b{font:600 1rem/1.1 var(--f-display);display:flex;gap:6px;align-items:center}
+.store b svg{width:14px;height:14px;color:var(--red);flex-shrink:0}
+.store span{font-size:.76rem;color:var(--muted)}
+@container (max-width:980px){.stores{grid-template-columns:repeat(3,1fr)}}
+@container (max-width:420px){.stores{grid-template-columns:1fr 1fr}}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tools .search{flex:1 1 220px;position:relative}
+.tools input,.tools select{font:500 .98rem var(--f-body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+.tools input:focus,.tools select:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 18%,transparent)}
+.tools .search input{padding-left:40px}
+.tools .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}
+.tools select{flex:0 1 200px;width:auto}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.cats button{all:unset;cursor:pointer;font:600 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:10px 13px;border-radius:99px;border:1px solid var(--line);color:var(--muted);transition:all .2s}
+.cats button:hover{color:var(--fg);border-color:var(--fg)}
+.cats button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cats button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.shop-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+.prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+@container (max-width:420px){.prods{grid-template-columns:1fr 1fr;gap:8px}.prod .bd{padding:10px}.prod h5{font-size:1rem}.prod .add{font-size:.8rem;padding:10px 4px}.prod .add.q{padding:8.5px 4px}}
+@media (max-width:480px){.shop{padding:14px}.eco-more{padding:14px}}
+.prod{border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;background:var(--bg);min-width:0;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;animation:fadeUp .4s var(--ease) both}
+.prod:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--red) 40%,var(--line));box-shadow:var(--sh-1)}
+.prod .ic{aspect-ratio:2/1;display:grid;place-items:center;background:var(--grad-soft),var(--sunk);color:var(--fg)}
+.prod .ic svg{width:50px;height:50px;transition:transform .5s var(--ease)}
+.prod:hover .ic svg{transform:scale(1.1) rotate(-6deg)}
+.prod .bd{padding:12px 14px 14px;display:grid;gap:6px;align-content:start}
+.prod .cat{font:600 .66rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.prod h5{margin:0;font:600 1.08rem/1.15 var(--f-display)}
+.prod .fit{font-size:.84rem;color:var(--muted)}
+.prod .pr{font:600 1.15rem var(--f-mono);font-variant-numeric:tabular-nums;margin-top:2px}
+.prod .pr.q{font:600 .8rem var(--f-mono);color:var(--muted);letter-spacing:.04em}
+.prod .add{all:unset;cursor:pointer;text-align:center;font:600 .9rem/1 var(--f-body);padding:11px;border-radius:99px;background:linear-gradient(135deg,#FF3D5A,#E3122F);color:#fff;margin-top:6px;position:relative;z-index:4;transition:filter .2s,transform .2s var(--ease)}
+.prod .add:hover{filter:brightness(1.08)}
+.prod .add:active{transform:scale(.96)}
+.prod .add.q{background:transparent;color:var(--fg);border:1.5px solid var(--fg);padding:9.5px}
+.prod .add:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.prod .add.ok{background:var(--good);color:#fff;border-color:var(--good);animation:pop .35s var(--ease)}
+@keyframes pop{50%{transform:scale(1.06)}}
+.empty-p{grid-column:1/-1;padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:18px}
+.cart{position:sticky;top:90px;border:1px solid var(--line);border-radius:18px;background:var(--bg);display:grid;min-width:0;scroll-margin-top:90px}
+.cart>header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cart>header h4{margin:0;font:600 1.2rem/1 var(--f-display)}
+.cart>header span{font:600 .72rem/1 var(--f-mono);color:var(--muted);letter-spacing:.06em;padding:6px 9px;border-radius:99px;background:var(--sunk)}
+.lines{display:grid;max-height:320px;overflow:auto}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:12px 16px;border-bottom:1px solid var(--line);animation:fadeUp .3s var(--ease)}
+.line b{font-weight:600;font-size:.95rem}
+.line small{color:var(--muted);font-size:.8rem;grid-column:1}
+.line .lp{font:600 .9rem var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;overflow:hidden;justify-self:end}
+.qty button{all:unset;cursor:pointer;width:30px;height:28px;display:grid;place-items:center;font-weight:700;color:var(--fg)}
+.qty button:hover{background:var(--sunk)}
+.qty button:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.qty span{min-width:26px;text-align:center;font:600 .9rem var(--f-mono)}
+.cart-empty{padding:22px 16px;color:var(--muted);font-size:.93rem;text-align:center}
+.totals{padding:12px 16px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+.totals div{display:flex;justify-content:space-between;gap:10px;font-size:.93rem}
+.totals .tt{font-weight:700;font-size:1.05rem}
+.totals .tt span:last-child{font-family:var(--f-mono)}
+.totals small{color:var(--muted);font-size:.8rem}
+.checkout{padding:14px 16px 16px;display:grid;gap:12px}
+.checkout .fld label,.checkout legend{font:600 .68rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.checkout input,.checkout select,.checkout textarea{font:500 .95rem var(--f-body);color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.checkout textarea{min-height:64px;resize:vertical}
+.checkout .btn{justify-content:center;width:100%}
+.pay-opts{display:flex;flex-wrap:wrap;gap:6px}
+.checkout .pay-opts label{display:flex;gap:6px;align-items:center;font-size:.88rem;border:1.5px solid var(--line);border-radius:99px;padding:7px 11px;cursor:pointer;letter-spacing:0;text-transform:none;font-family:var(--f-body);color:var(--fg)}
+.pay-opts label:has(input:checked){border-color:var(--red);background:color-mix(in srgb,var(--red) 7%,transparent)}
+.pay-opts input{accent-color:var(--red);margin:0}
+.placed{display:grid;gap:10px;padding:14px;border-radius:14px;border:1px solid color-mix(in srgb,var(--good) 45%,transparent);background:color-mix(in srgb,var(--good) 10%,transparent);font-size:.92rem;animation:fadeUp .4s var(--ease)}
+.placed .oref{font:600 1.05rem var(--f-mono);letter-spacing:.05em}
+.placed a{font-weight:700;color:var(--fg)}
+.linkbtn{all:unset;cursor:pointer;font:600 .85rem var(--f-body);color:var(--muted);text-decoration:underline;text-align:center}
+.minibar{display:none}
+@container (max-width:900px){
+  .shop-grid{grid-template-columns:1fr}
+  .cart{position:static}
+  .minibar:not([hidden]){display:flex;position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:5;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border-radius:18px;background:linear-gradient(120deg,#0B1226,#1B1F4A);color:#fff;box-shadow:0 16px 36px -12px rgba(0,0,0,.55);text-decoration:none;font:600 1rem/1 var(--f-display)}
+  .minibar span:last-child{font-family:var(--f-mono)}
+}
+
+/* ============ subscription ============ */
+.subs{background:linear-gradient(180deg,var(--bg),var(--sunk))}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(22px,3vw,32px);display:grid;gap:16px;align-content:start;min-width:0;box-shadow:var(--sh-1);transition:transform .4s var(--ease),box-shadow .4s}
+.plan:hover{transform:translateY(-5px);box-shadow:var(--sh-2)}
+.plan:first-child{border:1.5px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box}
+.plan .badge{position:absolute;top:-12px;left:22px;background:var(--grad);color:#fff;font:600 .7rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:7px 11px;border-radius:99px}
+.plan h3{font-size:1.65rem}
+.plan .for-m{color:var(--muted);font-size:.93rem;margin-top:-8px}
+.price{display:flex;align-items:baseline;gap:8px;font-variant-numeric:tabular-nums}
+.price b{font:700 4rem/1 var(--f-display);letter-spacing:-.04em}
+.price span{color:var(--muted);font:600 .8rem/1.3 var(--f-mono);letter-spacing:.04em}
+.price-note{font:500 .8rem/1.4 var(--f-mono);color:var(--muted);margin-top:-8px}
+.incl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.incl li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.incl li span:last-child{font:600 .86rem var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan .btn{justify-content:center}
+@media (max-width:640px){.plans{grid-template-columns:1fr}}
+.calendar{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(18px,3vw,28px);overflow-x:auto}
+.calendar h4,.flow-head h4{font:600 .74rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.cal{display:grid;grid-template-columns:140px repeat(12,minmax(34px,1fr));gap:5px;min-width:660px;font-size:.85rem}
+.cal>div{min-height:32px;display:grid;place-items:center;border-radius:8px}
+.cal .mh{font:600 .7rem/1 var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.cal .rl{justify-content:start;place-items:center start;font-weight:600}
+.cal .on{background:var(--grad);color:#fff;font:700 .8rem/1 var(--f-display)}
+.cal .pay{background:color-mix(in srgb,var(--blue) 15%,transparent);color:var(--blue);font:700 .78rem/1 var(--f-mono)}
+.cal .off{background:var(--sunk)}
+.calendar.in .cal>div:not(.mh):not(.rl){animation:cellIn .5s var(--ease) both}
+@keyframes cellIn{from{opacity:0;transform:scale(.6)}}
+.flow{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.flow-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:f;position:relative}
+.flow-steps::before{content:"";position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(var(--red),var(--blue));opacity:.35}
+.flow-steps li{counter-increment:f;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:14px 0;position:relative}
+.flow-steps li::before{content:counter(f);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--red);color:var(--red);font:700 1rem/1 var(--f-display);position:relative;z-index:1}
+.flow-steps b{display:block;font:600 1.15rem/1.15 var(--f-display)}
+.flow-steps span{color:var(--muted);font-size:.95rem}
+.desk{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;min-width:0;box-shadow:var(--sh-1)}
+.desk-tabs{display:grid;grid-template-columns:1fr 1fr;padding:6px;gap:6px;border-bottom:1px solid var(--line);background:var(--sunk)}
+.desk-tabs.three{grid-template-columns:repeat(3,1fr)}
+.desk-tabs button{all:unset;cursor:pointer;text-align:center;padding:13px;border-radius:12px;font:600 1rem/1 var(--f-display);color:var(--muted);transition:background-color .25s,color .25s,box-shadow .25s}
+.desk-tabs button:hover{color:var(--fg)}
+.desk-tabs button[aria-selected="true"]{color:var(--fg);background:var(--surface);box-shadow:0 4px 14px -6px rgba(10,20,50,.3)}
+.desk-tabs button:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.desk-body{padding:clamp(18px,3vw,28px);display:grid;gap:18px;animation:fadeUp .35s var(--ease)}
+@media (max-width:900px){.flow{grid-template-columns:1fr}}
+
+/* ============ electric ============ */
+section.ev{overflow:hidden;isolation:isolate}
+section.ev::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(45% 55% at 90% 20%,color-mix(in srgb,var(--blue) 14%,transparent),transparent 70%)}
+.ev-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(28px,5vw,80px);align-items:center}
+section.ev h2 em{background:linear-gradient(110deg,#22D3EE,#2F6BFF 60%,#7C5CFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+section.ev .eyebrow{color:var(--blue)}
+section.ev .eyebrow::before{background:linear-gradient(90deg,#22D3EE,#2F6BFF)}
+.ev-points{display:grid;gap:10px;margin-top:30px}
+.ev-points div{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px;border-radius:18px;border:1px solid var(--line);background:var(--surface);align-items:start;transition:transform .3s var(--ease),border-color .3s}
+.ev-points div:hover{transform:translateX(6px);border-color:color-mix(in srgb,var(--blue) 50%,var(--line))}
+.ev-points svg{width:52px;height:52px;padding:10px;border-radius:14px;color:var(--blue);background:color-mix(in srgb,var(--blue) 12%,transparent)}
+.ev-points b{display:block;font:600 1.2rem/1.15 var(--f-display)}
+.ev-points span{color:var(--muted);font-size:.96rem}
+.cell{position:relative;justify-self:center;width:100%;max-width:460px;aspect-ratio:1;border-radius:32px;background:linear-gradient(160deg,#0B1226,#050914);color:#EEF2FF;padding:clamp(24px,4vw,40px);display:grid;grid-template-rows:auto 1fr auto;gap:18px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(91,140,255,.25),0 50px 100px -40px rgba(47,107,255,.7)}
+.cell::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(34,211,238,.5) 80%,transparent 90%);animation:spinSlow 6s linear infinite;pointer-events:none}
+.cell::after{content:"";position:absolute;inset:1px;border-radius:31px;background:linear-gradient(160deg,#0B1226,#050914);pointer-events:none}
+.cell>*{position:relative;z-index:1}
+.cell .lbl{display:flex;justify-content:space-between;font:600 .76rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#A0ABCA}
+.cell .lbl span:last-child{color:#22D3EE;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.35}}
+.batt{align-self:center;display:grid;grid-template-columns:1fr 14px;align-items:center}
+.batt .body{height:clamp(90px,16vw,130px);border:4px solid #E9EEF8;border-radius:18px;padding:8px;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.batt .body i{border-radius:7px;background:linear-gradient(180deg,#5B8CFF,#2F6BFF);box-shadow:0 0 18px rgba(47,107,255,.6);animation:charge 3s ease-in-out infinite}
+.batt .body i:nth-child(1){animation-delay:0s}.batt .body i:nth-child(2){animation-delay:.25s}.batt .body i:nth-child(3){animation-delay:.5s}.batt .body i:nth-child(4){animation-delay:.75s}.batt .body i:nth-child(5){animation-delay:1s;background:linear-gradient(180deg,#22D3EE,#2F6BFF)}
+@keyframes charge{0%,15%{opacity:.15}35%,100%{opacity:1}}
+.batt .cap{height:40%;background:#E9EEF8;border-radius:0 6px 6px 0}
+.cell .big{font:700 clamp(2.2rem,5vw,3.2rem)/.95 var(--f-display);letter-spacing:-.03em;color:#fff}
+.cell .big small{display:block;font:400 .95rem/1.4 var(--f-body);letter-spacing:0;color:#A0ABCA;margin-top:10px}
+.ev-bikes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:clamp(40px,6vw,72px)}
+.ev-bike{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0;transition:transform .4s var(--ease),box-shadow .4s}
+.ev-bike:hover{transform:translateY(-5px);box-shadow:0 40px 80px -40px rgba(47,107,255,.55)}
+.ev-bike .ph{background:radial-gradient(circle at 50% 70%,#fff,#E8EDF7);aspect-ratio:16/10;padding:22px;border-bottom:1px solid var(--line);min-width:0;overflow:hidden}
+.ev-bike .ph img{width:100%;height:100%;object-fit:contain;transition:transform .9s var(--ease)}
+.ev-bike:hover .ph img{transform:scale(1.06) translateX(8px)}
+.ev-bike .b{padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.ev-bike .plate{justify-self:start}
+.ev-bike h3{font-size:1.9rem}
+.ev-bike p{color:var(--muted)}
+.ev-bike .foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:6px}
+.ev-bike .for{display:flex;flex-wrap:wrap;gap:6px}
+@media (max-width:760px){.ev-bikes{grid-template-columns:1fr}}
+@media (max-width:860px){.ev-grid{grid-template-columns:1fr}.cell{order:-1;max-width:380px}}
+
+/* ============ osharian family ============ */
+.care{background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb,var(--red) 6%,var(--bg)) 100%)}
+.care-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(24px,5vw,64px);align-items:center;margin-bottom:clamp(36px,5vw,60px)}
+.care-hero h2{margin-top:16px;font-size:clamp(2.6rem,5.4vw,4.6rem)}
+.care-hero .lede{margin-top:18px;font-size:1.15rem}
+.care-quote{margin-top:24px;font:500 1.25rem/1.45 var(--f-display);color:var(--fg);border-left:3px solid var(--red);padding:6px 0 6px 18px;max-width:40ch}
+.care-badge{position:relative;justify-self:center;width:min(300px,70vw);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;align-content:center;gap:8px;text-align:center;color:#fff;
+  background:radial-gradient(circle at 30% 25%,#FF5A72,#E3122F 55%,#7A0F2A);box-shadow:0 30px 70px -25px rgba(227,18,47,.6),inset 0 0 0 10px rgba(255,255,255,.08)}
+.care-badge::before,.care-badge::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(227,18,47,.5);animation:ripple 3s ease-out infinite;pointer-events:none}
+.care-badge::after{animation-delay:1.5s}
+@keyframes ripple{from{transform:scale(1);opacity:.8}to{transform:scale(1.35);opacity:0}}
+.care-badge svg{width:64px;height:64px;animation:beat 2.4s ease-in-out infinite}
+.care-badge b{font:700 1.8rem/1 var(--f-display)}
+.care-badge span{font:600 .72rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.12)}24%{transform:scale(1)}36%{transform:scale(1.08)}}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(24px,3vw,32px);display:grid;gap:12px;align-content:start;min-width:0;box-shadow:var(--sh-1);transition:transform .4s var(--ease),box-shadow .4s}
+.pillar:hover{transform:translateY(-5px);box-shadow:var(--sh-2)}
+.pillar svg{width:56px;height:56px;padding:12px;border-radius:16px;color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+.pillar h3{font-size:1.5rem}
+.pillar p{color:var(--muted)}
+.pillar .btn{justify-self:start;margin-top:6px;position:relative;z-index:4}
+.care-how{margin-top:clamp(36px,5vw,60px)}
+.care-how h4,.care-values h4{font:600 .74rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.care-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:c;position:relative}
+.care-steps li{counter-increment:c;display:grid;gap:6px;align-content:start;padding:0 14px 0 0;position:relative;min-width:0}
+.care-steps li::before{content:counter(c);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--red);color:var(--red);font:700 1.1rem/1 var(--f-display);position:relative;z-index:1;margin-bottom:8px}
+.care-steps li::after{content:"";position:absolute;top:21px;left:42px;right:0;height:2px;background:linear-gradient(90deg,var(--red),color-mix(in srgb,var(--red) 20%,transparent));transform-origin:left;transform:scaleX(var(--line-s,1));transition:transform .8s var(--ease) calc(var(--d,0ms) + 200ms)}
+html.js .care-steps li.reveal:not(.in)::after{--line-s:0}
+.care-steps li:last-child::after{display:none}
+.care-steps b{font-weight:700}
+.care-steps span{color:var(--muted);font-size:.9rem}
+@media (max-width:980px){.care-steps{grid-template-columns:repeat(3,1fr);row-gap:24px}.care-steps li:nth-child(3)::after{display:none}}
+@media (max-width:560px){.care-steps{grid-template-columns:1fr}.care-steps li{grid-template-columns:42px 1fr;column-gap:14px}.care-steps li::before{grid-row:span 2;margin:0}.care-steps li::after{display:none}}
+.care-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:start;margin-top:clamp(40px,5vw,72px)}
+.care-note{margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--sunk)}
+.care-desk .ta{font:500 1rem var(--f-body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px;min-height:84px;width:100%}
+.care-desk{scroll-margin-top:90px}
+@media (max-width:900px){.care-hero,.care-grid{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}.care-badge{width:200px}.care-badge svg{width:44px;height:44px}.care-badge b{font-size:1.4rem}}
+
+/* ============ events ============ */
+.ev-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.evc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0;transition:transform .4s var(--ease),box-shadow .4s}
+.evc:hover{transform:translateY(-5px);box-shadow:var(--sh-2)}
+.evc .top{position:relative;display:flex;gap:16px;align-items:center;padding:20px;background:linear-gradient(135deg,#0B1226,#1B2A5E);color:#fff;overflow:hidden}
+.evc .top::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(91,140,255,.45),transparent 70%)}
+.evc .date{display:grid;place-items:center;width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);flex-shrink:0}
+.evc .date b{font:700 1.8rem/1 var(--f-display)}
+.evc .date span{font:600 .66rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.evc .where b{display:block;font:700 1.3rem/1.1 var(--f-display)}
+.evc .where span{font-size:.85rem;opacity:.8}
+.evc .bd{padding:20px;display:grid;gap:10px;align-content:start}
+.evc h3{font-size:1.18rem}
+.evc p{color:var(--muted);font-size:.94rem}
+.evc .meta{display:flex;flex-wrap:wrap;gap:6px}
+.evc .btn{justify-self:start;margin-top:4px;padding:12px 20px;position:relative;z-index:4}
+.evc.next{border:1.5px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box}
+.evc.next .top{background:linear-gradient(135deg,#FF3D5A,#B8001F 60%,#5A0C2A)}
+.evc .chip[style]{border-color:transparent}
+@media (max-width:980px){.ev-list{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.ev-list{grid-template-columns:1fr}}
+
+/* ============ contact ============ */
+.contact{overflow:hidden;isolation:isolate}
+.contact::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/city-car.webp) center/cover no-repeat;opacity:.25;filter:saturate(.6)}
+.contact::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 15% 20%,rgba(227,18,47,.3),transparent 70%),radial-gradient(50% 60% at 90% 90%,rgba(47,107,255,.3),transparent 70%),linear-gradient(180deg,rgba(6,10,22,.6),rgba(6,10,22,.92))}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:start}
+.phone-num{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:28px}
+.phone-num b{font:700 clamp(2.4rem,6vw,4rem)/1 var(--f-display);letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;user-select:all}
+.copy{all:unset;cursor:pointer;font:600 .74rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border:1px solid rgba(150,170,255,.3);border-radius:99px;color:#fff;transition:background-color .2s,border-color .2s}
+.copy:hover{background:rgba(255,255,255,.08);border-color:#fff}
+.copy:focus-visible{outline:3px solid #6B93FF}
+.contact small.hint{display:block;margin-top:10px;color:#A0ABCA;font:500 .8rem/1.3 var(--f-mono)}
+form.enq{background:rgba(12,19,40,.66);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(150,170,255,.2);border-radius:var(--r-xl);padding:clamp(22px,3vw,34px);display:grid;gap:14px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+form.enq h3{font-size:1.7rem;color:#fff}
+form.enq .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form.enq label{display:grid;gap:7px;font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#A0ABCA}
+form.enq input,form.enq select,form.enq textarea{font:500 1rem var(--f-body);color:#fff;background:rgba(5,9,20,.7);border:1.5px solid rgba(150,170,255,.2);border-radius:12px;padding:13px 14px;width:100%;color-scheme:dark;transition:border-color .2s,box-shadow .2s}
+form.enq textarea{min-height:100px;resize:vertical}
+form.enq input:focus,form.enq select:focus,form.enq textarea:focus{outline:0;border-color:#6B93FF;box-shadow:0 0 0 4px rgba(107,147,255,.2)}
+form.enq .err{color:#FF8A96;font-size:.88rem;min-height:1.2em}
+.sent{display:grid;gap:10px;padding:14px;border-radius:14px;background:rgba(63,210,138,.12);border:1px solid rgba(63,210,138,.4);color:#D9F7E8;font-size:.95rem;animation:fadeUp .4s var(--ease)}
+.sent a{color:#fff;font-weight:600}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:460px){form.enq .two{grid-template-columns:1fr}}
+
+/* ============ footer ============ */
+footer.foot{font-size:.92rem;border-top:1px solid var(--line)}
+.foot-in{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;padding-block:32px}
+.foot-in img{height:22px;width:auto}
+.foot-in nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.foot-in nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.foot-in nav a:hover{color:#fff}
+.foot-in>span{color:var(--muted)}
+
+/* floating WhatsApp */
+.fab{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:70;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(135deg,#2BD46F,#11A84F);box-shadow:0 16px 30px -10px rgba(17,168,79,.7);text-decoration:none;transition:transform .35s var(--ease),opacity .35s}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #2BD46F;animation:ripple 2.4s ease-out infinite}
+.fab svg{width:28px;height:28px}
+.fab:hover{transform:scale(1.08) rotate(-6deg)}
+.fab .tip{position:absolute;right:70px;white-space:nowrap;padding:9px 13px;border-radius:12px;background:var(--surface-solid);color:var(--fg);border:1px solid var(--line);font:600 .85rem/1 var(--f-body);box-shadow:var(--sh-1);opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s var(--ease);pointer-events:none}
+.fab:hover .tip,.fab:focus-visible .tip{opacity:1;transform:none}
+.fab.hide{opacity:0;transform:scale(.6);pointer-events:none}
+
+/* ============ motion: scroll reveal ============ */
+html.js .reveal{opacity:0;translate:0 28px;transition:opacity .8s var(--ease) var(--d,0ms),translate .8s var(--ease) var(--d,0ms)}
+html.js .reveal.in{opacity:1;translate:0 0}
+html.js .hero .reveal{translate:0 18px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html.js .reveal{opacity:1;translate:none}
+}
+</style>
+</head>
+<body>
+<a class="sr" href="#ecosystem">Skip to content</a>
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+<header class="hdr over-hero">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Osha Autotech home"><img src="img/logo.png" alt="Osha" width="600" height="155"><span>Autotech</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i></i><i></i><i></i></button>
+    <ul class="links" id="links">
+      <li><a href="#ecosystem">Services</a></li>
+      <li><a href="#shop" data-shop>Parts shop</a></li>
+      <li><a href="#motorcycles">Motorcycles</a></li>
+      <li><a href="#subscription">Service plans</a></li>
+      <li><a href="#electric">Electric</a></li>
+      <li><a href="#prepayment">Prepayment</a></li>
+      <li><a href="#family">Osharians</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-red" href="https://wa.me/263787388295" target="_blank" rel="noopener">WhatsApp us <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero dark">
+  <div class="hero-bg" aria-hidden="true"><div class="grid"></div><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="streak" style="top:22%"></span><span class="streak s2" style="top:58%"></span><span class="streak s3" style="top:81%"></span></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="pill"><i class="dot" aria-hidden="true"></i>Digital mobility for Africa<span class="sep" aria-hidden="true"></span><span>Now in <b class="rot" id="rot">Harare</b></span></p>
+        <h1>Powering the <em>future</em> of Africa's motorcycle economy</h1>
+        <p class="lede">Osha Autotech is a digital-first mobility company. We sell motorcycles built for work, keep them running through our workshops and supply genuine parts, all connected through one digital platform.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="https://wa.me/263787388295" target="_blank" rel="noopener">Talk to us on WhatsApp <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#motorcycles">Explore the range</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="frame">
+          <div class="photo"><img src="img/hero-bike.webp" alt="Blue and red Osha trail motorcycle" width="1080" height="810" fetchpriority="high"><span class="scan" aria-hidden="true"></span></div>
+          <div class="float f1"><span class="plate">OSHA</span><span><b>Built for work</b><small>across Zimbabwe</small></span></div>
+          <div class="float f2" aria-hidden="true"><span class="ic" style="background:rgba(63,210,138,.16);color:#3FD28A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Fleet status</small><b>Live tracking</b></span></div>
+          <div class="float f3" aria-hidden="true"><span class="ic" style="background:rgba(255,61,90,.16);color:#FF3D5A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span><span><small>Service plans</small><b>From US$13/mo</b></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-count="5">5</b><span>Work-ready motorcycle models</span></div>
+      <div class="stat"><b data-count="6">6</b><span>Stores &amp; workshops in Zimbabwe</span></div>
+      <div class="stat"><b><span class="u">US$</span><span data-count="13">13</span></b><span>A month for full service plans</span></div>
+      <div class="stat"><b>24<span class="u">/</span>7</b><span>Real-time fleet tracking</span></div>
+    </div>
+    <nav class="tiles" aria-label="Our key services">
+      <a class="tile" href="#motorcycles"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 34a6 6 0 1 0 12 0 6 6 0 0 0-12 0zM30 34a6 6 0 1 0 12 0 6 6 0 0 0-12 0z"/><path d="M12 34l7-12h9l6 12M19 22l-2-5h-4M28 22l2-6h5"/></svg><span class="tt"><b>See the range</b><span>Five work-ready motorcycles, from the budget OS150-6B to the flagship OS200.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="tile" href="#subscription"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="10" width="34" height="30" rx="3"/><path d="M7 18h34M15 6v8M33 6v8"/><path d="M17 29l5 5 9-10"/></svg><span class="tt"><b>Subscribe for service</b><span>A full service every 3 months and new tyres twice a year, from US$13 a month.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="tile" href="#booking" data-book><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M31 9a9 9 0 0 0-8.5 12L9 34.5 13.5 39 27 25.5A9 9 0 0 0 39 17l-6 6-5-1-1-5 6-6a9 9 0 0 0-2-2z"/></svg><span class="tt"><b>Book a service</b><span>Pick your jobs, see the price and book a visit at one of six workshops.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="tile" href="#prepayment"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="13" y="5" width="22" height="38" rx="4"/><path d="M21 37h6"/><path d="M24 14v14M20 17.5c0-2 1.8-3 4-3s4 1 4 3-1.8 2.5-4 3-4 1-4 3 1.8 3 4 3 4-1 4-3"/></svg><span class="tt"><b>Prepayment system</b><span>Drivers pay before they drive. Missed payment? The vehicle switches off.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="tile ev" href="#electric"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 5L11 27h12l-3 16 17-23H25z"/></svg><span class="tt"><b>Electric bikes</b><span>Ride on charge, not fuel. See our electric commuter and trail bikes.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="tile" href="#shop" data-shop><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h5l4 22h22l4-15H14"/><circle cx="19" cy="38" r="3"/><circle cx="35" cy="38" r="3"/></svg><span class="tt"><b>Parts shop</b><span>Order genuine parts online and collect in store.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="tile fam" href="#family"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 40S7 30 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 12-17 22-17 22z"/></svg><span class="tt"><b>Join the Osharian family</b><span>No Osharian rides alone. Give, help or get help when the unexpected happens, and meet the family every month.</span></span><span class="go" aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span>Motorcycle sales<i></i>Workshop services<i></i>Genuine parts<i></i>Service plans from US$13/mo<i></i>Electric bikes<i></i>Prepayment System<i></i>Osharian Care Fund<i></i>Harare · Chinhoyi · Mhangura · Karoi · Guruve · Mvurwi<i></i></span>
+  <span>Motorcycle sales<i></i>Workshop services<i></i>Genuine parts<i></i>Service plans from US$13/mo<i></i>Electric bikes<i></i>Prepayment System<i></i>Osharian Care Fund<i></i>Harare · Chinhoyi · Mhangura · Karoi · Guruve · Mvurwi<i></i></span>
+</div></div>
+
+<!-- MISSION -->
+<section class="band" aria-label="Mission, vision and goal">
+  <div class="wrap mvg">
+    <article><p class="eyebrow">Mission</p><h3>Transform the industry</h3><p>Digitally transform Africa's motorcycle industry with affordable, reliable, tech-enabled mobility, so riders, small businesses and communities can get quality motorcycles, parts and service.</p></article>
+    <article><p class="eyebrow">Vision</p><h3>Lead the continent</h3><p>Become Africa's leading motorcycle mobility platform, powering trade, livelihoods and innovation through a fully integrated digital ecosystem.</p></article>
+    <article><p class="eyebrow">Goal</p><h3>Own, ride, maintain</h3><p>Build a digital motorcycle ecosystem for affordable ownership and reliable maintenance that drives job creation and sustainable mobility.</p></article>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="sec" id="ecosystem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">One integrated ecosystem</p>
+      <h2>Buy it. Service it. Keep it moving.</h2>
+      <p class="lede">Motorcycle sales, workshop services and genuine parts come from one company, so a rider can buy a bike, service it and find parts in one place.</p>
+    </div>
+    <div class="eco">
+      <div class="eco-tabs" role="tablist" aria-label="Osha services" id="ecoTabs"></div>
+      <div class="eco-panel" role="tabpanel" id="ecoPanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<dialog class="enq-d" id="enqD" aria-labelledby="eq_title">
+  <form id="eq_form" novalidate>
+    <header><div><p class="eyebrow">Enquire</p><h3 id="eq_title">OS200</h3></div><button type="button" class="x" id="eq_x" aria-label="Close">×</button></header>
+    <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>I would like to</legend>
+      <div class="slots"><label><input type="radio" name="eq_want" value="Buy this bike" checked>Buy</label><label><input type="radio" name="eq_want" value="Get the price">Get the price</label><label><input type="radio" name="eq_want" value="Check availability">Check availability</label><label><input type="radio" name="eq_want" value="See it in store">See it in store</label></div>
+    </fieldset>
+    <div class="fld"><label for="eq_name">Your name</label><input id="eq_name" autocomplete="name"></div>
+    <div class="fld"><label for="eq_phone">WhatsApp number</label><input id="eq_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+    <div class="fld"><label for="eq_store">Nearest store</label><select id="eq_store"><option>Harare</option><option>Chinhoyi</option><option>Mhangura</option><option>Karoi</option><option>Guruve</option><option>Mvurwi</option></select></div>
+    <p class="ferr" id="eq_err" role="alert"></p>
+    <button type="submit" class="btn btn-red" id="eq_go">Send on WhatsApp</button>
+    <div class="done-box" id="eq_done" hidden></div>
+  </form>
+</dialog>
+<div id="bookHold" hidden>
+<div class="book" id="booking">
+  <div class="book-head"><p class="eyebrow">Book a service · pay per service</p><h3>Book your workshop visit</h3><p>Choose what your bike needs, pick a workshop and a day, and send the booking to Osha. You see an estimate before you book and pay only for this visit.</p></div>
+  <div class="progress" aria-live="polite"><span id="b_lbl">Step 1 of 4</span><i class="done"></i><i id="b_p2"></i><i id="b_p3"></i><i id="b_p4"></i></div>
+  <div class="book-grid">
+    <form class="book-form" id="b_form" novalidate>
+      <div id="b1">
+        <div class="fld"><label for="b_model">Your bike</label><select id="b_model">
+          <optgroup label="OS200cc"><option value="os200|OS200">OS200</option><option value="os200|OS200-25W">OS200-25W</option><option value="os200|OS200-25J">OS200-25J</option></optgroup>
+          <optgroup label="OS150cc"><option value="os150|OS150-6B">OS150-6B</option><option value="os150|OS150 Farm Bike">OS150 Farm Bike</option></optgroup></select></div>
+        <fieldset class="fld" style="border:0;margin:16px 0 0;padding:0"><legend>What does it need?</legend>
+          <p class="fine" style="margin:-2px 0 10px">Prices below are for parts. Workshop labour is US$8.05 per visit, charged once however many jobs you book, and includes tyre fitting.</p>
+          <div class="opts" id="b_svcs"></div>
+        </fieldset>
+      </div>
+      <div id="b2" hidden>
+        <div class="fld"><label for="b_store">Workshop</label><select id="b_store"><option>Harare</option><option>Chinhoyi</option><option>Mhangura</option><option>Karoi</option><option>Guruve</option><option>Mvurwi</option></select></div>
+        <div class="two-f" style="margin-top:14px">
+          <div class="fld"><label for="b_date">Preferred day</label><input id="b_date" type="date"></div>
+          <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>Preferred time</legend>
+            <div class="slots"><label><input type="radio" name="b_slot" value="Morning" checked>Morning</label><label><input type="radio" name="b_slot" value="Midday">Midday</label><label><input type="radio" name="b_slot" value="Afternoon">Afternoon</label></div>
+          </fieldset>
+        </div>
+        <label class="opt" style="margin-top:14px;font:400 .95rem/1.4 var(--f-body)"><input type="checkbox" id="b_wait"><span><b>I'll wait while it's done</b><small>Otherwise leave the bike and we'll message you when it's ready</small></span></label>
+      </div>
+      <div id="b3" hidden>
+        <div class="two-f">
+          <div class="fld"><label for="b_name">Full name</label><input id="b_name" autocomplete="name"></div>
+          <div class="fld"><label for="b_phone">WhatsApp number</label><input id="b_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+        </div>
+        <div class="two-f" style="margin-top:14px">
+          <div class="fld"><label for="b_plate">Number plate</label><input id="b_plate" placeholder="e.g. AGR 8450" autocapitalize="characters"></div>
+          <div class="fld"><label for="b_pay">Pay by</label><select id="b_pay"><option>Pay at the workshop</option><option>EcoCash</option><option>Other mobile money</option></select></div>
+        </div>
+        <div class="fld" style="margin-top:14px"><label for="b_issue">Describe the problem (optional)</label><textarea id="b_issue" style="font:500 1rem var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:12px;min-height:80px;width:100%" placeholder="e.g. hard to start in the morning, noise from the chain"></textarea></div>
+      </div>
+      <div id="b4" hidden>
+        <div class="ref"><small>Booking reference</small><b id="b_ref"></b></div>
+        <div class="summary" id="b_sum" style="margin-top:12px"></div>
+        <p class="fine" style="margin-top:10px">This is a request. Osha confirms the day and time on WhatsApp. The final bill may change if the technician finds other work, and nothing extra is done without your approval.</p>
+        <div class="done-box" id="b_done" hidden style="margin-top:12px"></div>
+      </div>
+      <p class="ferr" id="b_err" role="alert"></p>
+      <div class="nav-f"><button type="button" class="btn btn-ghost" id="b_back" hidden>Back</button><button type="submit" class="btn btn-red" id="b_next" style="margin-left:auto">Continue</button></div>
+    </form>
+    <aside class="est" aria-live="polite"><h4>Estimate</h4><div id="b_lines"></div><div class="et"><span>Total</span><span id="b_total">US$0.00</span></div><p id="b_note">Prices include VAT.</p><p class="upsell" id="b_up"></p></aside>
+  </div>
+</div>
+</div>
+<div id="shopHold" hidden>
+<div class="shop" id="shop">
+  <div class="shop-head">
+    <div><p class="eyebrow">Osha parts shop</p><h3>Order online, collect in store</h3><p>Add parts to your order, choose the store you want to collect from, and send it to Osha. We confirm stock and payment on WhatsApp. Prices are in US$ and include VAT.</p></div>
+  </div>
+  <div class="stores" aria-label="Osha stores"><div class="store"><b><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 10 8 16 8 16s5.5-6 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6z"/></svg>Harare</b><span>Harare</span></div><div class="store"><b><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 10 8 16 8 16s5.5-6 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6z"/></svg>Chinhoyi</b><span>Mashonaland West</span></div><div class="store"><b><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 10 8 16 8 16s5.5-6 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6z"/></svg>Mhangura</b><span>Mashonaland West</span></div><div class="store"><b><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 10 8 16 8 16s5.5-6 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6z"/></svg>Karoi</b><span>Mashonaland West</span></div><div class="store"><b><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 10 8 16 8 16s5.5-6 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6z"/></svg>Guruve</b><span>Mashonaland Central</span></div><div class="store"><b><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 10 8 16 8 16s5.5-6 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.8a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6z"/></svg>Mvurwi</b><span>Mashonaland Central</span></div></div>
+  <div class="tools">
+    <div class="search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/></svg><label for="q" class="sr">Search parts</label><input id="q" type="search" placeholder="Search parts, e.g. tyre"></div>
+    <select id="fitSel" aria-label="Filter by bike"><option value="all">All bikes</option><option value="os200">OS200cc models</option><option value="os150">OS150cc models</option></select>
+  </div>
+  <div class="cats" id="cats" role="group" aria-label="Categories"></div>
+  <div class="shop-grid">
+    <div class="prods" id="prods" aria-live="polite"></div>
+    <aside class="cart" id="cart" aria-label="Your order">
+      <header><h4>Your order</h4><span id="cartCount">0 items</span></header>
+      <div class="lines" id="lines"></div>
+      <div class="totals" id="totals" hidden></div>
+      <form class="checkout" id="checkout" novalidate hidden>
+        <div class="fld"><label for="c_store">Collect from</label><select id="c_store"><option>Harare</option><option>Chinhoyi</option><option>Mhangura</option><option>Karoi</option><option>Guruve</option><option>Mvurwi</option></select></div>
+        <div class="fld"><label for="c_name">Your name</label><input id="c_name" autocomplete="name"></div>
+        <div class="fld"><label for="c_phone">WhatsApp number</label><input id="c_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+        <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>Pay by</legend>
+          <div class="pay-opts"><label><input type="radio" name="c_pay" value="EcoCash" checked>EcoCash</label><label><input type="radio" name="c_pay" value="Other mobile money">Other mobile money</label><label><input type="radio" name="c_pay" value="Pay in store">Pay in store</label></div>
+        </fieldset>
+        <div class="fld"><label for="c_note">Notes (optional)</label><textarea id="c_note" placeholder="Bike model, part details, or ask us to fit it for you"></textarea></div>
+        <p class="ferr" id="c_err" role="alert"></p>
+        <button class="btn btn-red" type="submit">Place order</button>
+      </form>
+      <div id="placed" hidden style="padding:14px 16px 16px"></div>
+    </aside>
+  </div>
+  <a class="minibar" id="minibar" href="#cart" hidden><span id="mbTxt">View order</span><span id="mbAmt"></span></a>
+</div>
+</div>
+<!-- MOTORCYCLES -->
+<section class="sec" id="motorcycles" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The Osha range</p>
+      <h2>A bike for every kind of work</h2>
+      <p class="lede">From budget city runners to heavy-load off-roaders, each series is built for delivery riders, farmers, SMEs and logistics firms.</p>
+    </div>
+    <div class="range">
+      <article class="bike feat flag"><div class="ph white"><img src="img/os200-flagship.webp" alt="Blue, red and white Osha OS200 dual-sport motorcycle with knobbly tyres, spoked wheels, hand guards and rear carrier rack" width="930" height="680"></div>
+        <div class="b"><div class="tags"><span class="plate">OS200 · CC</span><span class="chip flagchip">Our flagship</span></div><h3>OS200</h3><p>The Osha OS200 is our flagship: a 200cc dual-sport bike that is as ready for city traffic as it is for dirt roads. It comes with knobbly tyres on spoked wheels, long-travel front forks, a front disc brake, hand guards, a rear carrier rack and Osha's signature blue, red and white livery.</p><div class="for"><span class="chip">City &amp; dirt roads</span><span class="chip">All-rounder</span></div><a class="btn btn-red" href="#contact" data-enquire="OS200" style="justify-self:start;margin-top:6px">Enquire about the OS200</a></div><span class="cc" aria-hidden="true">200</span></article>
+      <article class="bike feat rev"><div class="ph"><img src="img/os200-w.webp" alt="Red and white OS200-25W off-road motorcycle with knobbly tyres, spoked wheels, hand guards and rear carrier rack" width="1000" height="880" loading="lazy"></div>
+        <div class="b"><span class="plate">OS200 · 25W</span><h3>OS200-25W</h3><p>Off-road mono-shock built to carry heavy loads through difficult terrain without giving up performance. It comes with knobbly tyres on spoked wheels, long-travel front forks, a front disc brake, hand guards and a rear carrier rack.</p><div class="for"><span class="chip">Mining</span><span class="chip">Off-road</span><span class="chip">Heavy loads</span></div><a class="btn btn-red" href="#contact" data-enquire="OS200-25W" style="justify-self:start;margin-top:6px">Enquire about the 25W</a></div><span class="cc" aria-hidden="true">200</span></article>
+      <article class="bike feat"><div class="ph"><img src="img/os200-25j-show.webp" alt="Teal Osha OS200-25J adventure motorcycle with windscreen, crash bars and aluminium top box and side cases, on display" width="1280" height="959" loading="lazy"></div>
+        <div class="b"><span class="plate">OS200 · 25J</span><h3>OS200-25J</h3><p>Our premium performance model, built for long distances. It comes with a tall windscreen, crash bars, alloy wheels with disc brakes, and aluminium top and side cases for luggage and equipment.</p><div class="for"><span class="chip">Performance</span><span class="chip">Touring</span><span class="chip">Corporate</span></div><a class="btn btn-red" href="#contact" data-enquire="OS200-25J" style="justify-self:start;margin-top:6px">Enquire about the 25J</a></div><span class="cc" aria-hidden="true">200</span></article>
+      <article class="bike feat rev"><div class="ph white"><img src="img/os150-6b.webp" alt="Black Osha OS150-6B motorcycle with chrome mudguards, front and rear carrier racks and passenger backrest" width="980" height="675" loading="lazy"></div>
+        <div class="b"><span class="plate">OS150 · 6B</span><h3>OS150-6B</h3><p>Our budget model for urban delivery and everyday transport, with low running costs for riders who work the city all day. It comes with front and rear carrier racks, a passenger backrest, a front disc brake and chrome mudguards.</p><div class="for"><span class="chip">Delivery</span><span class="chip">Commuters</span><span class="chip">Budget</span></div><a class="btn btn-red" href="#contact" data-enquire="OS150-6B" style="justify-self:start;margin-top:6px">Enquire about the 6B</a></div><span class="cc" aria-hidden="true">150</span></article>
+      <article class="bike feat"><div class="ph white"><img src="img/os150-farm.webp" alt="Red Osha OS150 farm motorcycle with headlight guard, handlebar crossbar, front and rear carrier racks and knobbly tyres" width="850" height="715" loading="lazy"></div>
+        <div class="b"><span class="plate">OS150 · FARM</span><h3>OS150 Farm Bike</h3><p>Double-shock suspension designed for farming environments, rough tracks and loads from field to market. It comes with a headlight guard, a handlebar crossbar, front and rear carrier racks, a long front mudguard and knobbly tyres on spoked wheels.</p><div class="for"><span class="chip">Farmers</span><span class="chip">Rural</span><span class="chip">Heavy loads</span></div><a class="btn btn-red" href="#contact" data-enquire="OS150 Farm Bike" style="justify-self:start;margin-top:6px">Enquire about the Farm Bike</a></div><span class="cc" aria-hidden="true">150</span></article>
+    </div>
+    <div class="range-foot">
+      <figure class="feature-img" style="margin:0"><img src="img/parked.webp" alt="Osha trail motorcycle parked on paving" loading="lazy"><figcaption>Assembled locally<small>Local assembly and a maintenance network keep prices down and after-sales service close.</small></figcaption></figure>
+      <figure class="feature-img" style="margin:0"><img src="img/dealer.webp" alt="Customer shaking hands at a motorcycle showroom" loading="lazy"><figcaption>Visit an Osha Centre<small>See the range in person, with genuine parts and certified service under the same roof.</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+
+<!-- SUBSCRIPTION -->
+<section class="sec subs" id="subscription">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Workshop service subscription</p>
+      <h2>One monthly payment. Every service covered.</h2>
+      <p class="lede">Spread the cost of keeping your Osha on the road. For a fixed monthly amount you get a full service every three months and new tyres twice a year, with parts and labour included.</p>
+    </div>
+    <div class="plans">
+      <article class="plan"><h3>OS200 Plan</h3><p class="for-m">For OS200cc models: OS200, OS200-25W and OS200-25J</p>
+        <div class="price"><b>$15</b><span>US$ / month</span></div><p class="price-note">US$180 a year · VAT included</p>
+        <ul class="incl"><li><span>Full service with labour</span><span>4 × a year</span></li><li><span>Oil change</span><span>4 × a year</span></li><li><span>Spark plug</span><span>4 × a year</span></li><li><span>Front tyre</span><span>2 × a year</span></li><li><span>Rear tyre</span><span>2 × a year</span></li></ul>
+        <a class="btn btn-red" href="#subscribe" data-plan="os200">Subscribe to OS200 Plan</a></article>
+      <article class="plan"><h3>OS150 Plan</h3><p class="for-m">For OS150cc models: OS150-6B and OS150 Farm Bike</p>
+        <div class="price"><b>$13</b><span>US$ / month</span></div><p class="price-note">US$156 a year · VAT included</p>
+        <ul class="incl"><li><span>Full service with labour</span><span>4 × a year</span></li><li><span>Oil change</span><span>4 × a year</span></li><li><span>Spark plug</span><span>4 × a year</span></li><li><span>Front tyre</span><span>2 × a year</span></li><li><span>Rear tyre</span><span>2 × a year</span></li></ul>
+        <a class="btn btn-red" href="#subscribe" data-plan="os150">Subscribe to OS150 Plan</a></article>
+    </div>
+
+    <div class="calendar">
+      <h4>Your year on a plan</h4>
+      <div class="cal" id="cal" role="table" aria-label="What happens each month on a service plan"></div>
+    </div>
+
+    <div class="flow" id="subscribe">
+      <div>
+        <div class="flow-head"><h4>How to subscribe</h4></div>
+        <ol class="flow-steps">
+          <li><p><b>Choose your plan</b><span>Pick the plan that matches your bike's engine size.</span></p></li>
+          <li><p><b>Register your bike</b><span>Fill in the form with your details and your bike's number plate. You get a plan reference straight away.</span></p></li>
+          <li><p><b>Send it to Osha</b><span>Your registration opens in WhatsApp, ready to send. Osha replies with payment details.</span></p></li>
+          <li><p><b>Pay your first month</b><span>Pay by EcoCash or other mobile money, or at an Osha Centre. Your plan starts once Osha confirms the payment.</span></p></li>
+          <li><p><b>First service booked</b><span>Osha books your first service. After that you are due every three months.</span></p></li>
+          <li><p><b>Pay every month</b><span>Use the Pay monthly tab to pay one or more months ahead, quoting your plan reference.</span></p></li>
+        </ol>
+      </div>
+
+      <div class="desk">
+        <div class="desk-tabs" role="tablist" aria-label="Subscription actions">
+          <button type="button" role="tab" id="t_reg" aria-selected="true" aria-controls="p_reg">Register</button>
+          <button type="button" role="tab" id="t_pay" aria-selected="false" aria-controls="p_pay" tabindex="-1">Pay monthly</button>
+        </div>
+
+        <form class="desk-body" id="p_reg" role="tabpanel" aria-labelledby="t_reg" novalidate>
+          <div class="progress" aria-live="polite"><span id="r_stepLbl">Step 1 of 3</span><i class="done"></i><i id="r_b2"></i><i id="r_b3"></i></div>
+
+          <div id="r1">
+            <fieldset class="fld"><legend>Choose your plan</legend>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="plan" value="os200" checked><span><b>OS200 Plan</b><small>OS200, OS200-25W, OS200-25J</small></span><span class="amt">US$15/mo</span></label>
+                <label class="opt"><input type="radio" name="plan" value="os150"><span><b>OS150 Plan</b><small>OS150-6B, OS150 Farm Bike</small></span><span class="amt">US$13/mo</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="r2" hidden>
+            <div class="two-f">
+              <div class="fld"><label for="r_name">Full name</label><input id="r_name" autocomplete="name"></div>
+              <div class="fld"><label for="r_phone">WhatsApp number</label><input id="r_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+            </div>
+            <div class="two-f">
+              <div class="fld"><label for="r_model">Bike model</label><select id="r_model"></select></div>
+              <div class="fld"><label for="r_plate">Number plate</label><input id="r_plate" placeholder="e.g. AGR 8450" autocapitalize="characters"></div>
+            </div>
+            <div class="two-f">
+              <div class="fld"><label for="r_city">Town or city</label><input id="r_city" placeholder="e.g. Harare" autocomplete="address-level2"></div>
+              <div class="fld"><label for="r_start">Start month</label><select id="r_start"></select></div>
+            </div>
+            <fieldset class="fld"><legend>How will you pay?</legend>
+              <div class="opts">
+                <label class="opt"><input type="radio" name="r_method" value="EcoCash" checked><span><b>EcoCash</b><small>Pay from your phone</small></span></label>
+                <label class="opt"><input type="radio" name="r_method" value="Other mobile money"><span><b>Other mobile money</b><small>Osha confirms the options available</small></span></label>
+                <label class="opt"><input type="radio" name="r_method" value="At an Osha Centre"><span><b>At an Osha Centre</b><small>Pay in person when you visit</small></span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="r3" hidden>
+            <div class="ref"><small>Your plan reference</small><b id="r_ref"></b></div>
+            <div class="summary" id="r_sum"></div>
+            <p class="fine">Keep your plan reference. You will quote it every time you pay. Your plan starts once Osha confirms your first payment.</p>
+            <div class="done-box" id="r_done" hidden></div>
+          </div>
+
+          <p class="ferr" id="r_err" role="alert"></p>
+          <div class="nav-f">
+            <button type="button" class="btn btn-ghost" id="r_back" hidden>Back</button>
+            <button type="submit" class="btn btn-red" id="r_next" style="margin-left:auto">Continue</button>
+          </div>
+        </form>
+
+        <form class="desk-body" id="p_pay" role="tabpanel" aria-labelledby="t_pay" hidden novalidate>
+          <div class="two-f">
+            <div class="fld"><label for="m_ref">Plan reference or number plate</label><input id="m_ref" placeholder="e.g. OSC-200-AGR8450" autocapitalize="characters"></div>
+            <div class="fld"><label for="m_plan">Plan</label><select id="m_plan"><option value="os200">OS200 Plan · US$15/mo</option><option value="os150">OS150 Plan · US$13/mo</option></select></div>
+          </div>
+          <div class="two-f">
+            <div class="fld"><label for="m_months">Months to pay</label><select id="m_months"></select></div>
+            <div class="fld"><label for="m_method">Payment method</label><select id="m_method"><option>EcoCash</option><option>Other mobile money</option><option>At an Osha Centre</option></select></div>
+          </div>
+          <div class="fld"><label for="m_txn">Transaction ID (if you have already paid)</label><input id="m_txn" placeholder="Optional"></div>
+          <div class="summary" id="m_sum"></div>
+          <p class="ferr" id="m_err" role="alert"></p>
+          <button type="submit" class="btn btn-red" style="justify-content:center">Prepare payment message</button>
+          <div class="done-box" id="m_done" hidden></div>
+          <p class="fine">Paying for several months at once keeps your plan active without monthly reminders.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELECTRIC -->
+<section class="sec ev" id="electric">
+  <div class="wrap ev-grid">
+    <div>
+      <p class="eyebrow">Electric motorcycles</p>
+      <h2 style="margin-top:14px">Ride on <em>charge</em>, not fuel</h2>
+      <p class="lede" style="margin-top:18px">Osha electric motorcycles give everyday riders a cleaner, cheaper way to get around. Charge up instead of paying at the pump, and keep more of what you earn.</p>
+      <div class="ev-points">
+        <div><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="6" width="16" height="25" rx="2"/><path d="M5 14h16M21 11l6 4v11a2 2 0 0 0 4 0V13l-3-3"/><path d="M11 18l-2 5h5l-2 5" stroke-linejoin="round"/></svg><p><b>Lower fuel costs</b><span>No petrol to buy for your daily trips, so running costs drop.</span></p></div>
+        <div><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M8 28C8 14 17 7 30 6c-1 13-8 22-22 22z"/><path d="M8 28L20 16"/></svg><p><b>Cleaner ride</b><span>An environmentally friendly option that supports sustainable mobility.</span></p></div>
+        <div><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="9" cy="24" r="5"/><circle cx="27" cy="24" r="5"/><path d="M9 24l6-9h7l5 9M15 15l-2-4h-3M22 15l1-4h4"/></svg><p><b>Made for daily commuting</b><span>Affordable, reliable transport through city traffic and between towns.</span></p></div>
+      </div>
+      <div class="hero-cta"><a class="btn btn-red" href="#contact" data-enquire="Electric motorcycles">Ask about electric</a></div>
+    </div>
+    <div class="cell" aria-hidden="true">
+      <div class="lbl"><span>Osha EV</span><span>Charging</span></div>
+      <div class="batt"><div class="body"><i></i><i></i><i></i><i></i><i></i></div><div class="cap"></div></div>
+      <p class="big">Zero litres<small>of petrol on your daily ride.</small></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="ev-bikes">
+      <article class="ev-bike"><div class="ph"><img src="img/ev-commuter.webp" alt="Orange and black electric street motorcycle with rear carrier rack" width="799" height="582" loading="lazy"></div>
+        <div class="b"><span class="plate">OSHA · EV CITY</span><h3>Electric Commuter</h3><p>A street bike for daily trips and city work. Upright riding position, front disc brake and a rear carrier rack for loads and deliveries.</p>
+          <div class="foot"><div class="for"><span class="chip">Commuting</span><span class="chip">Delivery</span></div></div><a class="btn btn-red" href="#contact" data-enquire="Electric Commuter" style="justify-self:start;margin-top:6px">Enquire about the Commuter</a></div></article>
+      <article class="ev-bike"><div class="ph"><img src="img/ev-trail.webp" alt="Grey electric trail motorcycle with knobbly off-road tyres and spoked wheels" width="1000" height="711" loading="lazy"></div>
+        <div class="b"><span class="plate">OSHA · EV TRAIL</span><h3>Electric Trail</h3><p>An off-road electric bike for rough roads and rural routes. Knobbly tyres, spoked wheels, long-travel suspension and front and rear disc brakes.</p>
+          <div class="foot"><div class="for"><span class="chip">Rough roads</span><span class="chip">Rural</span></div></div><a class="btn btn-red" href="#contact" data-enquire="Electric Trail" style="justify-self:start;margin-top:6px">Enquire about the Trail</a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PREPAYMENT -->
+<section class="sec pp dark" id="prepayment">
+  <div class="wrap">
+    <div class="pp-hero">
+      <div>
+        <p class="eyebrow">For vehicle owners</p>
+        <h2 style="margin-top:14px">Osha Prepayment System</h2>
+        <p class="pp-tag">Guaranteed daily payments. Real-time control. <span>Zero excuses.</span></p>
+        <p class="lede" style="margin-top:18px">You hand a driver your car, kombi or motorcycle. They pay through the app before the vehicle starts. Miss a payment and Osha switches the vehicle off remotely.</p>
+        <p class="relate"><b>Can you relate?</b> Owners in Zimbabwe's driver groups post the same stories every week: payments missed for days, phones switched off, trackers removed, vehicles found dumped with no fuel.</p>
+        <div class="hero-cta"><a class="btn btn-red" href="#contact">Join the system <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="phone"><img src="img/app-screen.webp" alt="Osha app home screen showing current contract, today's payment of $1.00 and vehicle AGR8450 with a Make Payment button" width="509" height="1080" loading="lazy"></div>
+    </div>
+
+    <div class="problems" aria-label="Problems vehicle owners face">
+      <article class="problem"><div class="ph"><img src="img/problem1.webp" alt="Driver in a car at night looking stressed" loading="lazy"></div><div class="bar" style="background:#4472C4"></div><div class="t"><h4>Unreliable cash payments</h4><p>Chasing daily and weekly fees, with income that changes every week.</p></div></article>
+      <article class="problem"><div class="ph icon" aria-hidden="true"><svg width="92" height="92" viewBox="0 0 92 92" fill="none" stroke="#FF8A5B" stroke-width="3"><circle cx="46" cy="40" r="16"/><path d="M46 56 C46 56 26 36 26 40"/><path d="M46 24v-10M46 76V66M20 40H10M82 40H72"/><path d="M46 56 L46 80" stroke-dasharray="4 5"/></svg></div><div class="bar" style="background:#ED7D31"></div><div class="t"><h4>Misuse &amp; no control</h4><p>Little visibility of where the vehicle is or how it is used.</p></div></article>
+      <article class="problem"><div class="ph"><img src="img/problem3.webp" alt="Serious-looking driver seated in a car" loading="lazy"></div><div class="bar" style="background:#A5A5A5"></div><div class="t"><h4>No driver history</h4><p>No way to know who you are trusting with a valuable asset.</p></div></article>
+      <article class="problem"><div class="ph"><img src="img/problem4.webp" alt="Driver holding a phone surrounded by receipts" loading="lazy"></div><div class="bar" style="background:#FFC000"></div><div class="t"><h4>Operational headaches</h4><p>Manual tracking, reconciliation and dispute resolution.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Pay first. Then drive.</h2>
+      <p class="lede">A smarter way to manage your fleet and give your drivers a clear, fair arrangement.</p>
+    </div>
+    <div class="how">
+      <ol class="steps" id="steps" role="tablist" aria-label="Prepayment steps"></ol>
+      <div class="stage" id="stage"><img id="stageImg" src="img/step1.webp" alt=""><span class="lock" id="stageLock" hidden></span><div class="cap" id="stageCap"></div></div>
+    </div>
+
+    <div class="features">
+      <div><h4>Guaranteed income</h4><p>Consistent daily or weekly fees, collected before the vehicle moves.</p></div>
+      <div><h4>Ultimate control</h4><p>Remote immobilisation when a payment is missed.</p></div>
+      <div><h4>Real-time tracking</h4><p>Know where your vehicles are, any time, anywhere.</p></div>
+      <div><h4>Driver management</h4><p>Register and manage your entire driver roster.</p></div>
+      <div><h4>Background checks <span class="chip soon">Coming soon</span></h4><p>Full driver background checks for extra security.</p></div>
+    </div>
+
+    <div class="benefits">
+      <article class="benefit"><div class="ph"><img src="img/vault.webp" alt="Bank vault with coins and rising graph" loading="lazy" style="object-position:center 30%"></div><div class="b"><p class="eyebrow">Benefit 1</p><h3>Guaranteed, predictable revenue</h3><p class="sub">No more chasing drivers for payment.</p>
+        <ul class="ticks"><li>Payment secured before the vehicle operates</li><li>Better cash-flow management</li><li>More financial discipline from drivers</li><li>Peace of mind for owners</li><li>A payment record that can support finance from formal institutions</li></ul></div></article>
+      <article class="benefit"><div class="ph"><img src="img/tracking.webp" alt="Dashboard tablet showing live fleet tracking map" loading="lazy"></div><div class="b"><p class="eyebrow">Benefit 2</p><h3>Real-time vehicle tracking</h3><p class="sub">Track vehicle location 24/7.</p>
+        <ul class="ticks"><li>Monitor movement and activity</li><li>Better security against theft</li><li>Make sure vehicles are used for their intended purpose</li></ul></div></article>
+      <article class="benefit"><div class="ph"><img src="img/checks.webp" alt="Driver with digital data overlays" loading="lazy" style="object-position:center 25%"></div><div class="b"><p class="eyebrow">Benefit 3 · <span style="color:var(--blue)">Coming soon</span></p><h3>Driver compliance &amp; checks</h3><p class="sub">Track payment compliance and behaviour history.</p>
+        <ul class="ticks"><li>A trusted driver database</li><li>Review performance before hiring</li><li>Lower risk when taking on new drivers</li><li>A professional driver ecosystem</li></ul></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="sec belong" id="community">
+  <div class="wrap">
+    <div class="sec-head" style="margin-inline:auto;text-align:center;justify-items:center">
+      <p class="eyebrow">Join the Osha community</p>
+      <h2>Be part of what moves Africa forward</h2>
+      <p class="lede">Riders, business owners and garages across Zimbabwe are building their livelihoods with Osha. There is a place for you too.</p>
+    </div>
+    <div class="ways">
+      <article class="way"><span class="who">Riders</span><h3>Own a bike built for your work</h3><p>Deliver, farm, commute or explore on a motorcycle made for Zimbabwe's roads, with service and parts close by.</p><a class="btn btn-red" href="#motorcycles">Find your bike</a></article>
+      <article class="way"><span class="who">Vehicle owners</span><h3>Grow a fleet you can trust</h3><p>Get paid before every trip, see where your vehicles are and switch them off if a payment is missed.</p><a class="btn btn-ghost" href="#prepayment">Explore prepayment</a></article>
+      <article class="way"><span class="who">Garages</span><h3>Become an Osha Service Point</h3><p>Join our network, train your technicians with Osha and serve riders in your town.</p><a class="btn btn-ghost" href="#contact" data-topic="Becoming an Osha Service Point">Partner with us</a></article>
+    </div>
+    <div class="towns"><span>Find us in</span><b>Harare</b><b>Chinhoyi</b><b>Mhangura</b><b>Karoi</b><b>Guruve</b><b>Mvurwi</b></div>
+  </div>
+</section>
+
+<!-- OSHARIAN FAMILY -->
+<section class="sec care" id="family">
+  <div class="wrap">
+    <div class="care-hero">
+      <div>
+        <p class="eyebrow">The Osharian family</p>
+        <h2>No Osharian rides alone</h2>
+        <p class="lede">An Osha is more than a bike. It is a family of riders who look out for each other. When one of us is injured, falls ill, loses a bike or passes on, the rest of us show up with money, with time and with care.</p>
+        <p class="care-quote">"When one Osharian falls, we all help carry the load."</p>
+      </div>
+      <div class="care-badge" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 40S7 30 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 12-17 22-17 22z"/></svg><b>Osharian<br>Care Fund</b><span>Give · Help · Get help</span></div>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 28h8l8 4h8a3 3 0 0 0 0-6h-6"/><path d="M16 36l6 3h10l12-8a3 3 0 0 0-4-4l-8 5"/><path d="M30 18s-7-4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 9-7 9z"/></svg><h3>Give</h3><p>Put a small amount into the Care Fund every month, or give once when a member needs it. Every dollar goes to Osharians and their families.</p><button type="button" class="btn btn-red" data-care="0">Contribute</button></article>
+      <article class="pillar"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="14" r="5"/><circle cx="33" cy="14" r="5"/><path d="M7 38v-4a8 8 0 0 1 8-8h4a8 8 0 0 1 8 8v4M27 26h2a8 8 0 0 1 8 8v4"/></svg><h3>Help</h3><p>Sign up to help with your time: a lift to hospital, a visit, a hand fixing a bike or running errands for a family.</p><button type="button" class="btn btn-ghost" data-care="1">Volunteer</button></article>
+      <article class="pillar"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6l14 6v10c0 9-6 16-14 20-8-4-14-11-14-20V12z"/><path d="M24 17v12M18 23h12"/></svg><h3>Get help</h3><p>If something unexpected happens to you or a fellow Osharian, tell us. We check it, then rally the family and the fund around you.</p><button type="button" class="btn btn-ghost" data-care="2">Ask for help</button></article>
+    </div>
+
+    <div class="care-how">
+      <h4>How the Care Fund works</h4>
+      <ol class="care-steps">
+        <li><b>Join</b><span>Register as an Osharian. Joining is free.</span></li>
+        <li><b>Give what you can</b><span>Contribute monthly or once, by EcoCash, other mobile money or at an Osha store.</span></li>
+        <li><b>Something happens</b><span>A member is injured, falls ill, loses their bike or passes on. They or a friend ask for help.</span></li>
+        <li><b>Osha checks it</b><span>We confirm what happened with the member or their family.</span></li>
+        <li><b>The family responds</b><span>Money goes straight to the member or their family, and volunteers step in where needed.</span></li>
+        <li><b>Everyone sees it</b><span>Members get an update on what came in and where it went.</span></li>
+      </ol>
+    </div>
+
+    <div class="care-grid">
+      <div class="care-values">
+        <h4>Our promise to each other</h4>
+        <ul class="ticks">
+          <li>Show up for each other, on and off the road</li>
+          <li>Give what you can, when you can. No amount is too small</li>
+          <li>Keep it honest: every request is checked and every dollar is accounted for</li>
+          <li>Respect privacy: we only share what the family agrees to</li>
+        </ul>
+        <p class="fine care-note">The Osharian Care Fund is a voluntary community fund, not insurance. Contributions are gifts, support depends on what the fund holds and is agreed case by case. In an emergency, call 999 or 994 for an ambulance first.</p>
+      </div>
+
+      <div class="desk care-desk" id="careDesk">
+        <div class="desk-tabs three" role="tablist" aria-label="Care Fund actions">
+          <button type="button" role="tab" id="ct0" aria-selected="true" aria-controls="cp0">Give</button>
+          <button type="button" role="tab" id="ct1" aria-selected="false" aria-controls="cp1" tabindex="-1">Volunteer</button>
+          <button type="button" role="tab" id="ct2" aria-selected="false" aria-controls="cp2" tabindex="-1">Get help</button>
+        </div>
+        <form class="desk-body" id="cp0" role="tabpanel" aria-labelledby="ct0" novalidate>
+          <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>How much?</legend>
+            <div class="slots amts"><label><input type="radio" name="g_amt" value="1">US$1</label><label><input type="radio" name="g_amt" value="2" checked>US$2</label><label><input type="radio" name="g_amt" value="5">US$5</label><label><input type="radio" name="g_amt" value="10">US$10</label><label><input type="radio" name="g_amt" value="other">Other</label></div>
+          </fieldset>
+          <div class="fld" id="g_otherW" hidden><label for="g_other">Amount in US$</label><input id="g_other" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 3"></div>
+          <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>How often?</legend>
+            <div class="slots"><label><input type="radio" name="g_freq" value="Every month" checked>Every month</label><label><input type="radio" name="g_freq" value="Once">Once</label></div>
+          </fieldset>
+          <div class="two-f">
+            <div class="fld"><label for="g_name">Your name</label><input id="g_name" autocomplete="name"></div>
+            <div class="fld"><label for="g_phone">WhatsApp number</label><input id="g_phone" type="tel" inputmode="tel" placeholder="07xx xxx xxx"></div>
+          </div>
+          <div class="two-f">
+            <div class="fld"><label for="g_town">Town</label><select id="g_town"><option>Harare</option><option>Chinhoyi</option><option>Mhangura</option><option>Karoi</option><option>Guruve</option><option>Mvurwi</option><option>Other</option></select></div>
+            <div class="fld"><label for="g_pay">Pay by</label><select id="g_pay"><option>EcoCash</option><option>Other mobile money</option><option>At an Osha store</option></select></div>
+          </div>
+          <label class="opt" style="font:400 .95rem/1.4 var(--f-body)"><input type="checkbox" id="g_anon"><span><b>Keep my gift private</b><small>Your name will not be shared with other members</small></span></label>
+          <p class="ferr" id="g_err" role="alert"></p>
+          <button type="submit" class="btn btn-red" style="justify-content:center">Send my pledge on WhatsApp</button>
+          <div class="done-box" id="g_done" hidden></div>
+        </form>
+        <form class="desk-body" id="cp1" role="tabpanel" aria-labelledby="ct1" hidden novalidate>
+          <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>I can help with</legend>
+            <div class="slots"><label><input type="checkbox" name="v_help" value="Lifts to hospital">Lifts to hospital</label><label><input type="checkbox" name="v_help" value="Visits and encouragement">Visits and encouragement</label><label><input type="checkbox" name="v_help" value="Fixing bikes">Fixing bikes</label><label><input type="checkbox" name="v_help" value="Errands for the family">Errands for the family</label><label><input type="checkbox" name="v_help" value="Covering a delivery shift">Covering a delivery shift</label><label><input type="checkbox" name="v_help" value="Organising events">Organising events</label></div>
+          </fieldset>
+          <div class="two-f">
+            <div class="fld"><label for="v_name">Your name</label><input id="v_name" autocomplete="name"></div>
+            <div class="fld"><label for="v_phone">WhatsApp number</label><input id="v_phone" type="tel" inputmode="tel" placeholder="07xx xxx xxx"></div>
+          </div>
+          <div class="fld"><label for="v_town">Town</label><select id="v_town"><option>Harare</option><option>Chinhoyi</option><option>Mhangura</option><option>Karoi</option><option>Guruve</option><option>Mvurwi</option><option>Other</option></select></div>
+          <p class="ferr" id="v_err" role="alert"></p>
+          <button type="submit" class="btn btn-red" style="justify-content:center">Sign up to help</button>
+          <div class="done-box" id="v_done" hidden></div>
+        </form>
+        <form class="desk-body" id="cp2" role="tabpanel" aria-labelledby="ct2" hidden novalidate>
+          <fieldset class="fld" style="border:0;margin:0;padding:0"><legend>Who needs help?</legend>
+            <div class="slots"><label><input type="radio" name="h_who" value="Me" checked>Me</label><label><input type="radio" name="h_who" value="Another Osharian">Another Osharian</label><label><input type="radio" name="h_who" value="The family of an Osharian">An Osharian's family</label></div>
+          </fieldset>
+          <div class="fld"><label for="h_what">What happened?</label><select id="h_what"><option>Injury or accident</option><option>Illness</option><option>Bike stolen or badly damaged</option><option>Death of a member</option><option>Other hardship</option></select></div>
+          <div class="two-f">
+            <div class="fld"><label for="h_name">Your name</label><input id="h_name" autocomplete="name"></div>
+            <div class="fld"><label for="h_phone">WhatsApp number</label><input id="h_phone" type="tel" inputmode="tel" placeholder="07xx xxx xxx"></div>
+          </div>
+          <div class="two-f">
+            <div class="fld"><label for="h_member">Member's name (if not you)</label><input id="h_member"></div>
+            <div class="fld"><label for="h_town">Town</label><select id="h_town"><option>Harare</option><option>Chinhoyi</option><option>Mhangura</option><option>Karoi</option><option>Guruve</option><option>Mvurwi</option><option>Other</option></select></div>
+          </div>
+          <div class="fld"><label for="h_story">Tell us briefly what you need</label><textarea id="h_story" class="ta" placeholder="e.g. hospital bills after an accident, help getting to work while the bike is repaired"></textarea></div>
+          <p class="ferr" id="h_err" role="alert"></p>
+          <button type="submit" class="btn btn-red" style="justify-content:center">Send request on WhatsApp</button>
+          <div class="done-box" id="h_done" hidden></div>
+          <p class="fine">Someone from Osha will call you back. Your request stays private until you agree what can be shared.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="sec events" id="events">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Osharian meetups</p>
+      <h2>Every month, a new town. One family.</h2>
+      <p class="lede">Osha brings Osharians together every month in a different town: group rides, safety training, free bike checks and family days. Come ride with us, learn something and meet the family.</p>
+    </div>
+    <div class="ev-list" id="evList"></div>
+    <p class="fine" style="margin-top:14px">Dates are provisional. We confirm the venue and time on WhatsApp to everyone who says they're coming.</p>
+  </div>
+</section>
+
+<dialog class="enq-d" id="rsvpD" aria-labelledby="rs_title">
+  <form id="rs_form" novalidate>
+    <header><div><p class="eyebrow" id="rs_when">Event</p><h3 id="rs_title">Event</h3></div><button type="button" class="x" id="rs_x" aria-label="Close">×</button></header>
+    <div class="fld"><label for="rs_name">Your name</label><input id="rs_name" autocomplete="name"></div>
+    <div class="fld"><label for="rs_phone">WhatsApp number</label><input id="rs_phone" type="tel" inputmode="tel" placeholder="07xx xxx xxx"></div>
+    <div class="fld"><label for="rs_n">How many people are coming, including you?</label><select id="rs_n"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6 or more</option></select></div>
+    <label class="opt" style="font:400 .95rem/1.4 var(--f-body)"><input type="checkbox" id="rs_bike" checked><span><b>I'm riding my Osha there</b><small>Join the group ride on the day</small></span></label>
+    <p class="ferr" id="rs_err" role="alert"></p>
+    <button type="submit" class="btn btn-red" id="rs_go">I'm coming</button>
+    <div class="done-box" id="rs_done" hidden></div>
+  </form>
+</dialog>
+
+<!-- CONTACT -->
+<section class="sec contact dark" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Talk to Osha</p>
+      <h2 style="margin-top:14px">Ready to ride, service or protect your fleet?</h2>
+      <p class="lede" style="margin-top:16px">Call or WhatsApp Osha Autotech about motorcycles, workshop plans, spare parts or the Prepayment System.</p>
+      <div class="phone-num"><b id="num">0787 388 295</b><button class="copy" id="copyBtn" type="button">Copy number</button></div>
+      <small class="hint">WhatsApp &amp; calls · +263 78 738 8295</small>
+      <div class="hero-cta"><a class="btn btn-red" href="https://wa.me/263787388295" target="_blank" rel="noopener">Open WhatsApp <span class="arr" aria-hidden="true">→</span></a></div>
+    </div>
+    <form class="enq" id="enq" novalidate>
+      <h3>Send an enquiry</h3>
+      <div class="two">
+        <label for="f_name">Your name<input id="f_name" name="name" autocomplete="name" required></label>
+        <label for="f_city">Town or city<input id="f_city" name="city" autocomplete="address-level2" placeholder="e.g. Harare"></label>
+      </div>
+      <label for="f_topic">I'm interested in<select id="f_topic" name="topic">
+        <option>Buying a motorcycle</option><option>Electric motorcycles</option><option>Workshop service or subscription</option>
+        <option>Becoming an Osha Service Point</option><option>Spare parts &amp; accessories</option><option>Osha Prepayment System</option></select></label>
+      <label for="f_msg">Message<textarea id="f_msg" name="message" placeholder="Tell us what you need, e.g. how many vehicles or which model"></textarea></label>
+      <p class="err" id="f_err" role="alert"></p>
+      <button class="btn btn-red" type="submit" style="justify-content:center">Prepare WhatsApp message</button>
+      <div class="sent" id="sent" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot dark">
+  <div class="wrap foot-in">
+    <img src="img/logo.png" alt="Osha" width="600" height="155">
+    <nav aria-label="Footer"><a href="#ecosystem">Services</a><a href="#shop" data-shop>Parts shop</a><a href="#motorcycles">Motorcycles</a><a href="#subscription">Service plans</a><a href="#electric">Electric</a><a href="#prepayment">Prepayment</a><a href="#family">Osharian family</a><a href="#events">Events</a><a href="#contact">Contact</a></nav>
+    <span>© <span id="yr">2026</span> Osha Autotech · Harare, Zimbabwe</span>
+  </div>
+  <div class="stripe" aria-hidden="true"></div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/263787388295" target="_blank" rel="noopener" aria-label="Chat with Osha on WhatsApp"><span class="tip" aria-hidden="true">Chat with us</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z" fill="currentColor" stroke="none"/></svg></a>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$('#yr').textContent=new Date().getFullYear();
+
+/* mobile nav */
+const burger=$('#burger'),links=$('#links');
+burger.addEventListener('click',()=>{const o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')});
+links.addEventListener('click',e=>{if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+/* active nav */
+const navA=[...links.querySelectorAll('a')];
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){navA.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+  navA.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));s&&io.observe(s)});
+}
+
+/* generic tabs with arrow keys */
+function tabs(host,items,label,render,mk){
+  host.innerHTML='';
+  const btns=items.map((it,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.id=host.id+'-'+i;b.innerHTML=mk(it,i);
+    b.addEventListener('click',()=>sel(i));b.addEventListener('keydown',e=>{const k=e.key;let j=null;
+      if(k==='ArrowRight'||k==='ArrowDown')j=(i+1)%items.length;if(k==='ArrowLeft'||k==='ArrowUp')j=(i-1+items.length)%items.length;if(k==='Home')j=0;if(k==='End')j=items.length-1;
+      if(j!==null){e.preventDefault();sel(j);btns[j].focus()}});
+    const wrapEl=host.tagName==='OL'?document.createElement('li'):null; if(wrapEl){wrapEl.appendChild(b);host.appendChild(wrapEl)}else host.appendChild(b); return b});
+  function sel(i){btns.forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});render(items[i],i,btns[i])}
+  sel(0);return sel;
+}
+
+/* ecosystem */
+const eco=[
+ {n:'Motorcycle Sales',img:'hero-bike',h:'Motorcycle sales',p:'Five models, from the budget OS150-6B to our flagship OS200, matched to delivery riders, farmers, miners, SMEs and logistics firms.',l:['OS200: our flagship 200cc dual-sport','OS150-6B: budget model for urban delivery and transport','OS150 Farm: double-shock bike for farming environments','OS200-25W: off-road mono-shock for heavy loads','OS200-25J: premium performance model'],e:['Direct sales']},
+ {n:'Workshop Services',img:'speedo',h:'Osha workshops',p:'Certified, branded service centres, plus a franchise model that lets local garages become Osha Service Points with Osha training.',l:['Maintenance, repairs, oil changes and diagnostics','Subscription service plans','Technician training and certification'],e:['Pay per service','Subscription'],more:[
+  {t:'What our workshops do',g:[['Routine maintenance','Regular check-ups that keep your bike reliable and catch problems early.'],['Oil changes','Fresh engine oil using the lubricants we stock ourselves.'],['Diagnostics','We find the cause of a fault before replacing anything.'],['Repairs','From small fixes to major repairs, done by certified technicians.']]},
+  {t:'Service plans',g:[['Pay per service','Bring your bike in when it needs work and pay for that visit only. Book below and see the price first.'],['Subscription plan','From US$13 a month: a full service every three months and new tyres twice a year, parts and labour included. See Service plans below.']]},
+  {t:'Become an Osha Service Point',steps:[['Apply','Local garage owners get in touch with Osha to join the network.'],['Train','Your technicians go through Osha training and certification.'],['Open','Your garage runs as an Osha Service Point, serving Osha riders in your area.']]}
+ ],cta:[['Book a service','#booking'],['Become a Service Point','Becoming an Osha Service Point']],book:true},
+ {n:'Parts & Accessories',img:'parked',h:'Genuine parts & accessories',p:'The parts, fluids and gear that keep Osha riders on the road, sold in our six stores and in our online shop.',l:['Genuine spare parts and lubricants','Tyres, batteries and helmets','Order online, collect in store','Partnerships with manufacturers and wholesalers'],e:['Retail','Online'],more:[
+  {t:'What we stock',g:[['Spare parts','Replacement parts for every Osha model.'],['Lubricants & oils','Engine oil and lubricants for regular servicing.'],['Tyres','Road and off-road tyres for city, farm and mine work.'],['Batteries','Replacement batteries to keep your bike starting every morning.'],['Helmets','Helmets for riders and passengers.'],['Rider safety gear','Protective equipment for delivery and work riders.']]},
+  {t:'Why buy genuine',g:[['Made for your bike','Parts built for Osha models fit properly and last longer.'],['Sourced direct','We buy through partnerships with manufacturers and wholesalers.'],['Kept in stock','Parts arrive in bulk container loads, so common items are ready when you need them.']]},
+  {t:'How to buy',g:[['In store','Walk into any of our six stores: Harare, Chinhoyi, Mhangura, Karoi, Guruve and Mvurwi.'],['Online shop','Order in the parts shop above and collect from the store you choose.'],['Fitted for you','Buy the part and have our certified technicians fit it in the workshop.'],['Garages & fleets','Service Points, garages and fleet owners can order in larger quantities.']]}
+ ],cta:[['Ask about a part','Spare parts & accessories']],shop:true}
+];
+const ecoSel=tabs($('#ecoTabs'),eco,'',(it,i,b)=>{const p=$('#ecoPanel');p.setAttribute('aria-labelledby',b.id);$('#shopHold').appendChild($('#shop'));$('#bookHold').appendChild($('#booking'));
+ p.innerHTML=`<div class="txt"><p class="eyebrow">${String(i+1).padStart(2,'0')} / ${String(eco.length).padStart(2,'0')}</p><h3>${esc(it.h)}</h3><p class="lede" style="font-size:1.05rem">${esc(it.p)}</p><ul class="ticks">${it.l.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><div class="earn"><span>How it's priced</span>${it.e.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div></div><div class="pic"><img src="img/${it.img}.webp" alt=""></div>${it.more?`<div class="eco-more">${it.more.map(m=>`<div><h4>${esc(m.t)}</h4>${m.steps?`<ol class="eco-steps">${m.steps.map(([a,b])=>`<li><p><b>${esc(a)}</b><span>${esc(b)}</span></p></li>`).join('')}</ol>`:`<div class="eco-grid${m.g.length%2===0&&m.g.length%3!==0?' c2':''}">${m.g.map(([a,b])=>`<div><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>`}</div>`).join('')}<div class="eco-cta">${it.cta.map(([l,t],k)=>(t[0]==='#'?`<a class="btn ${k?'btn-ghost':'btn-red'}" href="${t}" data-jump="${t}">${esc(l)}</a>`:`<a class="btn ${k?'btn-ghost':'btn-red'}" href="#contact" data-topic="${esc(t)}">${esc(l)}</a>`)).join('')}</div></div>`:''}`;
+ if(it.shop)p.querySelector('.eco-more').prepend($('#shop'));
+ if(it.book){const m=p.querySelector('.eco-more');m.insertBefore($('#booking'),m.children[2]||null)}
+ p.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.dataset.jump).scrollIntoView({behavior:'smooth'})}));
+ p.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>{$('#f_topic').value=a.dataset.topic}));},
+ (it,i)=>`<small>${String(i+1).padStart(2,'0')}</small>${esc(it.n)}`);
+
+/* steps */
+const steps=[
+ {t:'Driver registration',d:'The owner registers the driver on the Osha platform and sets a daily or weekly payment amount.',img:'step1',lock:null},
+ {t:'Prepayment',d:'The driver pays the daily or weekly fee through the app to activate the vehicle.',img:'step2',lock:null},
+ {t:'Vehicle activation',d:'Once payment lands, the vehicle is activated straight away for the day or the week.',img:'step3',lock:'on'},
+ {t:'Default & immobilisation',d:'If a payment is missed, Osha switches the vehicle off remotely.',img:'step3',lock:'off'},
+ {t:'Real-time tracking',d:'The owner watches location and status, with reports on payments and defaults, in the Osha platform.',img:'step5',lock:null}
+];
+tabs($('#steps'),steps,'',(s,i)=>{$('#stageImg').src='img/'+s.img+'.webp';$('#stageImg').alt=s.t;$('#stageCap').textContent='Step '+(i+1)+' · '+s.t;
+  const L=$('#stageLock');if(s.lock){L.hidden=false;L.className='lock '+s.lock;L.textContent=s.lock==='on'?'● Vehicle active':'■ Vehicle off'}else L.hidden=true;
+  $('#stageImg').style.filter=s.lock==='off'?'grayscale(.85) brightness(.9)':'none'},
+ (s,i)=>`<span class="n">${i+1}</span><span><h4>${esc(s.t)}</h4><p>${esc(s.d)}</p></span>`);
+
+
+/* osharian family */
+(()=>{
+const tabs=[0,1,2].map(i=>$('#ct'+i)),panes=[0,1,2].map(i=>$('#cp'+i));
+function ct(i){tabs.forEach((t,k)=>{t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1;panes[k].hidden=k!==i})}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>ct(i));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const j=(i+(e.key==='ArrowRight'?1:2))%3;ct(j);tabs[j].focus()}})});
+document.querySelectorAll('[data-care]').forEach(b=>b.addEventListener('click',()=>{ct(+b.dataset.care);$('#careDesk').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}));
+document.querySelectorAll('input[name=g_amt]').forEach(r=>r.addEventListener('change',()=>{$('#g_otherW').hidden=document.querySelector('input[name=g_amt]:checked').value!=='other'}));
+const okPhone=v=>v.replace(/\D/g,'').length>=9;
+function send(box,btn,text,msg,label){const url='https://wa.me/263787388295?text='+encodeURIComponent(msg);const b=$(box);b.hidden=false;
+ b.innerHTML=`<span>${text}</span><a href="${url}" target="_blank" rel="noopener">${label||'Open WhatsApp →'}</a>`}
+$('#cp0').addEventListener('submit',e=>{e.preventDefault();const err=$('#g_err');
+ let amt=document.querySelector('input[name=g_amt]:checked').value;if(amt==='other'){amt=$('#g_other').value;if(!(+amt>=1)){err.textContent='Enter an amount of at least US$1.';$('#g_other').focus();return}}
+ const name=$('#g_name').value.trim(),ph=$('#g_phone').value.trim();
+ if(!name){err.textContent='Enter your name.';$('#g_name').focus();return}
+ if(!okPhone(ph)){err.textContent='Enter a WhatsApp number, for example 0787 388 295.';$('#g_phone').focus();return}
+ err.textContent='';const freq=document.querySelector('input[name=g_freq]:checked').value;
+ send('#g_done',0,`Thank you, ${esc(name.split(' ')[0])}. Your pledge of US$${esc(amt)} ${freq==='Once'?'once':'a month'} is ready. Send it and Osha will reply with payment details.`,
+ `Hello Osha, I'd like to give to the Osharian Care Fund.\n\nAmount: US$${amt}\nHow often: ${freq}\nPay by: ${$('#g_pay').value}\nName: ${name}${$('#g_anon').checked?' (please keep my gift private)':''}\nWhatsApp: ${ph}\nTown: ${$('#g_town').value}`,'Send my pledge on WhatsApp →')});
+$('#cp1').addEventListener('submit',e=>{e.preventDefault();const err=$('#v_err');
+ const help=[...document.querySelectorAll('input[name=v_help]:checked')].map(i=>i.value),name=$('#v_name').value.trim(),ph=$('#v_phone').value.trim();
+ if(!help.length){err.textContent='Choose at least one way you can help.';return}
+ if(!name){err.textContent='Enter your name.';$('#v_name').focus();return}
+ if(!okPhone(ph)){err.textContent='Enter a WhatsApp number, for example 0787 388 295.';$('#v_phone').focus();return}
+ err.textContent='';
+ send('#v_done',0,`Thank you, ${esc(name.split(' ')[0])}. Send this and we will add you to the volunteer list for ${esc($('#v_town').value)}.`,
+ `Hello Osha, I'd like to volunteer for the Osharian family.\n\nI can help with: ${help.join(', ')}\nName: ${name}\nWhatsApp: ${ph}\nTown: ${$('#v_town').value}`,'Send on WhatsApp →')});
+$('#cp2').addEventListener('submit',e=>{e.preventDefault();const err=$('#h_err');
+ const name=$('#h_name').value.trim(),ph=$('#h_phone').value.trim(),who=document.querySelector('input[name=h_who]:checked').value,mem=$('#h_member').value.trim(),story=$('#h_story').value.trim();
+ if(!name){err.textContent='Enter your name.';$('#h_name').focus();return}
+ if(!okPhone(ph)){err.textContent='Enter a WhatsApp number so we can call you back.';$('#h_phone').focus();return}
+ if(who!=='Me'&&!mem){err.textContent="Enter the member's name so we can reach them or their family.";$('#h_member').focus();return}
+ err.textContent='';
+ send('#h_done',0,"We're here for you. Send this message and someone from Osha will call you back.",
+ `Hello Osha, I'm asking the Osharian family for help.\n\nWho needs help: ${who}${mem?' ('+mem+')':''}\nWhat happened: ${$('#h_what').value}\nTown: ${$('#h_town').value}\nMy name: ${name}\nWhatsApp: ${ph}`+(story?`\nWhat we need: ${story}`:''),'Send request on WhatsApp →')});
+
+/* events */
+const TOWNS=[['Harare','Harare'],['Chinhoyi','Mashonaland West'],['Mvurwi','Mashonaland Central'],['Karoi','Mashonaland West'],['Mhangura','Mashonaland West'],['Guruve','Mashonaland Central']];
+const KINDS=[
+ ['Osharian group ride & family day','Ride out together, then food, music and games for the whole family.',['Group ride','Family day']],
+ ['Rider safety day & free bike check','Road-safety tips from our team and a free check-up for every Osha that rides in.',['Safety','Free check']],
+ ["Farmers' ride & maintenance clinic",'Learn to keep your bike running through the farming season, with parts advice on the day.',['Farmers','Workshop']],
+ ['First-aid & road safety training','Learn what to do in the first minutes after an accident. It could save an Osharian life.',['Training','First aid']],
+ ["Heavy-load riders' clinic",'Tips for carrying loads safely on rough roads, and a look at the OS200-25W.',['Mining','Heavy loads']],
+ ['End-of-year Osharian celebration','Celebrate the year with the family, honour our volunteers and welcome new riders.',['Celebration','Care Fund']]
+];
+function lastSat(y,m){const d=new Date(y,m+1,0);d.setDate(d.getDate()-((d.getDay()+1)%7));return d}
+const now=new Date(),ev=[];let j=0;
+for(let k=0;k<6;k++){const mm=now.getMonth()+k+ (now.getDate()>lastSat(now.getFullYear(),now.getMonth()).getDate()?1:0);
+ const y=now.getFullYear()+Math.floor(mm/12),m=((mm%12)+12)%12,d=lastSat(y,m);
+ const kind=m===11?KINDS[5]:KINDS[(j++)%5];ev.push({d,town:TOWNS[k%6],kind})}
+$('#evList').innerHTML=ev.map((e,i)=>`<article class="evc${i===0?' next':''}"><div class="top"><div class="date"><b>${e.d.getDate()}</b><span>${e.d.toLocaleString('en-GB',{month:'short'})}</span></div><div class="where"><b>${e.town[0]}</b><span>${e.town[1]} · ${e.d.toLocaleString('en-GB',{weekday:'long'})}</span></div></div>
+ <div class="bd">${i===0?'<span class="chip" style="background:var(--red);color:#fff;justify-self:start">Next meetup</span>':''}<h3>${esc(e.kind[0])}</h3><p>${esc(e.kind[1])}</p><div class="meta">${e.kind[2].map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div><button type="button" class="btn ${i===0?'btn-red':'btn-ghost'}" data-rsvp="${i}">I'm coming</button></div></article>`).join('');
+const D=$('#rsvpD');let cur=null;
+$('#evList').addEventListener('click',e=>{const b=e.target.closest('[data-rsvp]');if(!b)return;cur=ev[+b.dataset.rsvp];
+ $('#rs_title').textContent=cur.kind[0];$('#rs_when').textContent=`${cur.town[0]} · ${cur.d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}`;
+ $('#rs_err').textContent='';$('#rs_done').hidden=true;$('#rs_go').hidden=false;
+ if(D.showModal){D.showModal();setTimeout(()=>$('#rs_name').focus(),30)}});
+$('#rs_x').addEventListener('click',()=>D.close());D.addEventListener('click',e=>{if(e.target===D)D.close()});
+$('#rs_form').addEventListener('submit',e=>{e.preventDefault();const name=$('#rs_name').value.trim(),ph=$('#rs_phone').value.trim();
+ if(!name){$('#rs_err').textContent='Enter your name.';$('#rs_name').focus();return}
+ if(!okPhone(ph)){$('#rs_err').textContent='Enter a WhatsApp number so we can send you the details.';$('#rs_phone').focus();return}
+ $('#rs_err').textContent='';$('#rs_go').hidden=true;
+ send('#rs_done',0,'See you there. Send this and Osha will confirm the venue and time.',
+ `Hello Osha, I'm coming to the Osharian meetup.\n\nEvent: ${cur.kind[0]}\nWhere: ${cur.town[0]}\nWhen: ${cur.d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}\nPeople coming: ${$('#rs_n').value}\nRiding my Osha: ${$('#rs_bike').checked?'Yes':'No'}\nName: ${name}\nWhatsApp: ${ph}`,"Open WhatsApp →")});
+})();
+
+/* bike enquiry */
+(()=>{
+const D=$('#enqD');let bike='';
+function open(name){bike=name;$('#eq_title').textContent=name;$('#eq_err').textContent='';$('#eq_done').hidden=true;$('#eq_go').hidden=false;
+ if(D.showModal){D.showModal();setTimeout(()=>$('#eq_name').focus(),30)}else{$('#f_topic').value=/Electric/.test(name)?'Electric motorcycles':'Buying a motorcycle';$('#f_msg').value='I am interested in the '+name+'.';location.hash='contact'}}
+document.querySelectorAll('[data-enquire]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();open(a.dataset.enquire)}));
+$('#eq_x').addEventListener('click',()=>D.close());
+D.addEventListener('click',e=>{if(e.target===D)D.close()});
+$('#eq_form').addEventListener('submit',e=>{e.preventDefault();
+ const name=$('#eq_name').value.trim(),ph=$('#eq_phone').value.trim(),want=document.querySelector('input[name=eq_want]:checked').value,store=$('#eq_store').value;
+ if(!name){$('#eq_err').textContent='Enter your name.';$('#eq_name').focus();return}
+ if(ph.replace(/\D/g,'').length<9){$('#eq_err').textContent='Enter a WhatsApp number, for example 0787 388 295.';$('#eq_phone').focus();return}
+ $('#eq_err').textContent='';
+ const msg=`Hello Osha, I'm interested in the ${bike}.\n\nI would like to: ${want.toLowerCase()}\nNearest store: ${store}\nName: ${name}\nWhatsApp: ${ph}`;
+ const url='https://wa.me/263787388295?text='+encodeURIComponent(msg);
+ $('#eq_go').hidden=true;const b=$('#eq_done');b.hidden=false;
+ b.innerHTML=`<span>Your enquiry is ready. Open WhatsApp and press send.</span><a href="${url}" target="_blank" rel="noopener">Open WhatsApp →</a><span class="fine">Or call 0787 388 295.</span>`;
+});
+})();
+
+/* booking */
+(()=>{
+const LAB=8.05,OIL=2.09,PLUG=1.28,TY={os200:{f:23.34,r:42.97},os150:{f:22.23,r:34.07}},SUB={os200:15,os150:13};
+const SV=[
+ {id:'full',n:'Full service',d:'Check-over, oil change and new spark plug',p:m=>OIL+PLUG},
+ {id:'oil',n:'Oil change',d:'Fresh engine oil',p:m=>OIL},
+ {id:'plug',n:'Spark plug',d:'Replace the spark plug',p:m=>PLUG},
+ {id:'ft',n:'Front tyre',d:'New front tyre, fitted',p:m=>TY[m].f},
+ {id:'rt',n:'Rear tyre',d:'New rear tyre, fitted',p:m=>TY[m].r},
+ {id:'diag',n:'Diagnostics & repairs',d:'We find the fault and quote before repairing',p:m=>null}
+];
+const usd=n=>'US$'+n.toFixed(2);
+const model=()=>{const [c,n]=$('#b_model').value.split('|');return{c,n}};
+function drawS(){const m=model().c,prev=new Set([...document.querySelectorAll('#b_svcs input:checked')].map(i=>i.value));if(!prev.size)prev.add('full');
+ $('#b_svcs').innerHTML=SV.map(v=>{const p=v.p(m);return `<label class="opt"><input type="checkbox" name="svc" value="${v.id}" ${prev.has(v.id)?'checked':''}><span><b>${v.n}</b><small>${v.d}</small></span><span class="amt${p==null?' muted':''}">${p==null?'After inspection':usd(p)}</span></label>`}).join('');lock();est()}
+function lock(){const full=document.querySelector('#b_svcs input[value=full]').checked;['oil','plug'].forEach(id=>{const i=document.querySelector(`#b_svcs input[value=${id}]`);i.disabled=full;if(full)i.checked=false})}
+function sel(){return [...document.querySelectorAll('#b_svcs input:checked')].map(i=>i.value)}
+function calc(){const m=model().c,ids=sel(),lines=[];let t=0,insp=false;
+ ids.forEach(id=>{const v=SV.find(x=>x.id===id),p=v.p(m);if(p==null){insp=true;lines.push([v.n,'After inspection'])}else{t+=p;lines.push([v.n+(id==='full'?' parts':''),usd(p)])}});
+ if(ids.length){t+=LAB;lines.push(['Workshop labour (per visit)',usd(LAB)])}
+ return{lines,t,insp,ids}}
+function est(){const c=calc(),m=model().c;
+ $('#b_lines').innerHTML=c.lines.length?c.lines.map(([a,b])=>`<div class="el"><span>${esc(a)}</span><span>${b}</span></div>`).join(''):'<p>Choose at least one service.</p>';
+ $('#b_total').textContent=usd(c.t)+(c.insp?'+':'');
+ $('#b_note').textContent=c.insp?'Prices include VAT. Repairs are quoted after inspection and only done with your approval.':'Prices include VAT. Tyre fitting is included in the labour charge.';
+ $('#b_up').innerHTML=`Service often? The ${m==='os200'?'OS200':'OS150'} Plan covers 4 full services and new tyres twice a year for US$${SUB[m]} a month. <a href="#subscription">See plans</a>`}
+$('#b_model').addEventListener('change',drawS);
+$('#b_svcs').addEventListener('change',()=>{lock();est()});
+const d0=new Date();d0.setDate(d0.getDate()+1);const d1=new Date();d1.setDate(d1.getDate()+60);
+const iso=d=>d.toISOString().slice(0,10);$('#b_date').min=iso(d0);$('#b_date').max=iso(d1);$('#b_date').value=iso(d0);
+let step=1;
+function go(n){step=n;[1,2,3,4].forEach(k=>$('#b'+k).hidden=k!==n);$('#b_lbl').textContent=`Step ${n} of 4`;[2,3,4].forEach(k=>$('#b_p'+k).className=n>=k?'done':'');
+ $('#b_back').hidden=n===1;$('#b_next').hidden=false;$('#b_next').textContent=n<3?'Continue':n===3?'Review booking':'Send booking on WhatsApp';$('#b_err').textContent='';if(n<4)$('#b_done').hidden=true}
+$('#b_back').addEventListener('click',()=>go(step-1));
+const nice=v=>{const [y,mo,da]=v.split('-').map(Number);return new Date(y,mo-1,da).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'})};
+$('#b_form').addEventListener('submit',e=>{e.preventDefault();const err=$('#b_err');
+ if(step===1){if(!sel().length){err.textContent='Choose at least one service.';return}go(2);return}
+ if(step===2){const v=$('#b_date').value;if(!v||v<$('#b_date').min||v>$('#b_date').max){err.textContent='Choose a day between tomorrow and the next 60 days.';$('#b_date').focus();return}go(3);$('#b_name').focus();return}
+ if(step===3){const name=$('#b_name').value.trim(),ph=$('#b_phone').value.trim(),pl=$('#b_plate').value.trim();
+  if(!name){err.textContent='Enter your full name.';$('#b_name').focus();return}
+  if(ph.replace(/\D/g,'').length<9){err.textContent='Enter a WhatsApp number, for example 0787 388 295.';$('#b_phone').focus();return}
+  if(pl.replace(/[^A-Za-z0-9]/g,'').length<4){err.textContent="Enter your bike's number plate.";$('#b_plate').focus();return}
+  const d=new Date();const ref='OSB-'+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+  $('#b_ref').textContent=ref;const c=calc();
+  $('#b_sum').innerHTML=[['Bike',model().n+' · '+pl.toUpperCase()],['Services',c.ids.map(id=>SV.find(x=>x.id===id).n).join(', ')],['Workshop',$('#b_store').value],['Day',nice($('#b_date').value)+', '+document.querySelector('input[name=b_slot]:checked').value.toLowerCase()],['Waiting',$('#b_wait').checked?'Yes, I will wait':'No, message me when ready'],['Name',name],['WhatsApp',ph],['Pay by',$('#b_pay').value],['Estimated total',usd(c.t)+(c.insp?' + repairs':'')]].map(([a,b])=>`<div><span>${esc(a)}</span><span>${esc(b)}</span></div>`).join('');
+  go(4);return}
+ const c=calc(),ref=$('#b_ref').textContent,pl=$('#b_plate').value.trim().toUpperCase(),issue=$('#b_issue').value.trim();
+ const msg=`Hello Osha, I'd like to book a service (pay per service).\n\nBooking: ${ref}\nBike: ${model().n}, plate ${pl}\nServices: ${c.ids.map(id=>SV.find(x=>x.id===id).n).join(', ')}\nWorkshop: ${$('#b_store').value}\nDay: ${nice($('#b_date').value)}, ${document.querySelector('input[name=b_slot]:checked').value.toLowerCase()}\nWaiting: ${$('#b_wait').checked?'Yes':'No'}\nEstimate: US$${c.t.toFixed(2)}${c.insp?' plus repairs after inspection':''}\nPay by: ${$('#b_pay').value}\nName: ${$('#b_name').value.trim()}\nWhatsApp: ${$('#b_phone').value.trim()}`+(issue?`\nProblem: ${issue}`:'')+`\n\nPlease confirm my booking.`;
+ const url='https://wa.me/263787388295?text='+encodeURIComponent(msg);
+ const box=$('#b_done');box.hidden=false;$('#b_next').hidden=true;
+ box.innerHTML=`<span>Your booking is ready. Open WhatsApp and press send, and Osha will confirm your day and time.</span><a href="${url}" target="_blank" rel="noopener">Open WhatsApp with my booking →</a><span class="fine">No WhatsApp? Call 0787 388 295 and quote ${esc(ref)}.</span>`;
+});
+drawS();
+function openBook(e){if(e)e.preventDefault();ecoSel(1);requestAnimationFrame(()=>$('#booking').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}))}
+document.querySelectorAll('[data-book]').forEach(a=>a.addEventListener('click',openBook));
+if(location.hash==='#booking')openBook();
+})();
+
+/* shop */
+(()=>{
+const I={
+ tyre:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="4" fill="currentColor"/><path d="M32 6v6M32 52v6M6 32h6M52 32h6M13.6 13.6l4.2 4.2M46.2 46.2l4.2 4.2M13.6 50.4l4.2-4.2M46.2 17.8l4.2-4.2" stroke-width="4"/></svg>',
+ plug:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><rect x="26" y="4" width="12" height="10" rx="2"/><path d="M24 14h16l-2 18H26z"/><rect x="22" y="32" width="20" height="8" rx="1"/><path d="M28 40v12h8V40M32 52v6M32 58h6"/></svg>',
+ oil:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 20h24l6 8v28a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V22a2 2 0 0 1 2-2z"/><path d="M24 20v-8h12v8M26 12V8h8v4"/><path d="M32 34c-4 6-5 8-5 10a5 5 0 0 0 10 0c0-2-1-4-5-10z" fill="currentColor"/></svg>',
+ batt:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><rect x="8" y="18" width="48" height="36" rx="3"/><rect x="14" y="12" width="10" height="6"/><rect x="40" y="12" width="10" height="6"/><path d="M16 34h8M20 30v8M40 34h8"/></svg>',
+ helmet:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><path d="M8 40c0-16 11-28 26-28 13 0 22 10 22 24v8H30l-4 8H12a4 4 0 0 1-4-4z"/><path d="M30 44V32h26"/></svg>',
+ gear:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 8l10 6 10-6 14 8-6 12-4-2v30H18V26l-4 2-6-12z"/><path d="M32 14v42"/></svg>',
+ part:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><path d="M40 8a14 14 0 0 0-13 19L8 46l10 10 19-19A14 14 0 0 0 56 24l-9 9-8-2-2-8 9-9a14 14 0 0 0-6-6z"/></svg>'
+};
+const P=[
+ {id:'ft200',c:'Tyres',n:'Front tyre',f:'OS200cc models',m:'os200',p:23.34,i:'tyre'},
+ {id:'rt200',c:'Tyres',n:'Rear tyre',f:'OS200cc models',m:'os200',p:42.97,i:'tyre'},
+ {id:'ft150',c:'Tyres',n:'Front tyre',f:'OS150cc models',m:'os150',p:22.23,i:'tyre'},
+ {id:'rt150',c:'Tyres',n:'Rear tyre',f:'OS150cc models',m:'os150',p:34.07,i:'tyre'},
+ {id:'plug',c:'Spare parts',n:'Spark plug',f:'All Osha models',m:'all',p:1.28,i:'plug'},
+ {id:'oil',c:'Oils & lubricants',n:'Engine oil, one service',f:'All Osha models',m:'all',p:2.09,i:'oil'},
+ {id:'lube',c:'Oils & lubricants',n:'Other oils & lubricants',f:'Tell us what you need',m:'all',p:null,i:'oil'},
+ {id:'batt',c:'Batteries',n:'Motorcycle battery',f:'Add your bike model in the notes',m:'all',p:null,i:'batt'},
+ {id:'helmet',c:'Safety gear',n:'Helmet',f:'For riders and passengers',m:'all',p:null,i:'helmet'},
+ {id:'gear',c:'Safety gear',n:'Rider safety gear',f:'Protective equipment for work riders',m:'all',p:null,i:'gear'},
+ {id:'other',c:'Spare parts',n:'Any other spare part',f:'Describe the part in the notes',m:'all',p:null,i:'part'}
+];
+const byId=Object.fromEntries(P.map(x=>[x.id,x]));
+const usd=n=>'US$'+n.toFixed(2);
+let cart={};try{cart=JSON.parse(localStorage.getItem('osha-cart')||'{}')||{};for(const k in cart)if(!byId[k])delete cart[k]}catch(e){cart={}}
+const save=()=>{try{localStorage.setItem('osha-cart',JSON.stringify(cart))}catch(e){}};
+let cat='All';
+const cats=['All',...new Set(P.map(x=>x.c))];
+$('#cats').innerHTML=cats.map(c=>`<button type="button" aria-pressed="${c==='All'}">${esc(c)}</button>`).join('');
+$('#cats').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.textContent;$('#cats').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawP()});
+$('#q').addEventListener('input',drawP);$('#fitSel').addEventListener('change',drawP);
+function drawP(){const q=$('#q').value.trim().toLowerCase(),fit=$('#fitSel').value;
+ const list=P.filter(x=>(cat==='All'||x.c===cat)&&(fit==='all'||x.m==='all'||x.m===fit)&&(!q||(x.n+' '+x.c+' '+x.f).toLowerCase().includes(q)));
+ $('#prods').innerHTML=list.length?list.map(x=>`<article class="prod"><div class="ic">${I[x.i]}</div><div class="bd"><span class="cat">${esc(x.c)}</span><h5>${esc(x.n)}</h5><span class="fit">${esc(x.f)}</span>${x.p!=null?`<span class="pr">${usd(x.p)}</span>`:`<span class="pr q">Price on request</span>`}<button type="button" class="add${x.p==null?' q':''}" data-add="${x.id}">${x.p!=null?'Add to order':'Request price'}</button></div></article>`).join(''):`<p class="empty-p">No parts match your search. Try another word, or add "Any other spare part" and describe it in the notes.</p>`}
+$('#prods').addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(!b)return;const id=b.dataset.add;cart[id]=(cart[id]||0)+1;save();drawC();
+ const t=b.textContent;b.classList.add('ok');b.textContent='Added ✓';setTimeout(()=>{b.classList.remove('ok');b.textContent=t},1100)});
+function drawC(){const ids=Object.keys(cart).filter(k=>cart[k]>0);let n=0,tot=0,quote=0;ids.forEach(k=>{n+=cart[k];if(byId[k].p!=null)tot+=byId[k].p*cart[k];else quote++});
+ $('#cartCount').textContent=n+(n===1?' item':' items');
+ $('#lines').innerHTML=ids.length?ids.map(k=>{const x=byId[k];return `<div class="line"><b>${esc(x.n)}</b><span class="lp">${x.p!=null?usd(x.p*cart[k]):'On request'}</span><small>${esc(x.f)}${x.p!=null?' · '+usd(x.p)+' each':''}</small><span class="qty"><button type="button" data-dec="${k}" aria-label="Remove one ${esc(x.n)}">−</button><span>${cart[k]}</span><button type="button" data-inc="${k}" aria-label="Add one ${esc(x.n)}">+</button></span></div>`}).join(''):`<p class="cart-empty">Your order is empty. Add parts from the list to get started.</p>`;
+ const has=ids.length>0;$('#totals').hidden=!has;$('#checkout').hidden=!has||!$('#placed').hidden;
+ $('#totals').innerHTML=`<div class="tt"><span>Total</span><span>${usd(tot)}</span></div>${quote?`<small>Plus ${quote} item${quote>1?'s':''} priced on request. Osha will confirm the final total.</small>`:'<small>VAT included. Pay after Osha confirms stock.</small>'}`;
+ const mb=$('#minibar');mb.hidden=!has;$('#mbTxt').textContent=`View order · ${n} item${n===1?'':'s'}`;$('#mbAmt').textContent=usd(tot)+(quote?'+':'');
+ return {ids,n,tot,quote}}
+$('#lines').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const k=b.dataset.inc||b.dataset.dec;if(b.dataset.inc)cart[k]++;else{cart[k]--;if(cart[k]<=0)delete cart[k]}save();drawC()});
+$('#checkout').addEventListener('submit',e=>{e.preventDefault();const err=$('#c_err');const name=$('#c_name').value.trim(),phone=$('#c_phone').value.trim();
+ if(!name){err.textContent='Enter your name so the store knows who is collecting.';$('#c_name').focus();return}
+ if(phone.replace(/\D/g,'').length<9){err.textContent='Enter a WhatsApp number, for example 0787 388 295.';$('#c_phone').focus();return}
+ err.textContent='';const st=drawC();const store=$('#c_store').value,pay=document.querySelector('input[name=c_pay]:checked').value,note=$('#c_note').value.trim();
+ const d=new Date();const ref='OSP-'+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+ const lines=st.ids.map(k=>{const x=byId[k];return `• ${cart[k]} × ${x.n} (${x.f})${x.p!=null?` – US$${(x.p*cart[k]).toFixed(2)}`:' – price on request'}`}).join('\n');
+ const msg=`Hello Osha, I'd like to order parts.\n\nOrder: ${ref}\n${lines}\n\nTotal: US$${st.tot.toFixed(2)}${st.quote?' plus items priced on request':''}\nCollect from: ${store}\nPay by: ${pay}\nName: ${name}\nWhatsApp: ${phone}`+(note?`\nNotes: ${note}`:'')+`\n\nPlease confirm stock and send payment details.`;
+ const url='https://wa.me/263787388295?text='+encodeURIComponent(msg);
+ $('#checkout').hidden=true;const pl=$('#placed');pl.hidden=false;
+ pl.innerHTML=`<div class="placed"><span>Order ready to send</span><span class="oref">${ref}</span><span>Open WhatsApp and press send. Osha will confirm stock at <b>${esc(store)}</b> and send payment details.</span><a href="${url}" target="_blank" rel="noopener">Open WhatsApp with my order →</a><button type="button" class="linkbtn" id="newOrder">Start a new order</button></div>`;
+ $('#newOrder').addEventListener('click',()=>{cart={};save();pl.hidden=true;$('#c_note').value='';drawC()});
+});
+drawP();drawC();
+/* links that open the shop */
+function openShop(e){if(e)e.preventDefault();ecoSel(2);requestAnimationFrame(()=>$('#shop').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}))}
+document.querySelectorAll('[data-shop]').forEach(a=>a.addEventListener('click',openShop));
+if(location.hash==='#shop')openShop();
+})();
+
+/* subscription */
+(()=>{
+const PL={os200:{n:'OS200 Plan',p:15,code:'200',models:['OS200','OS200-25W','OS200-25J']},os150:{n:'OS150 Plan',p:13,code:'150',models:['OS150-6B','OS150 Farm Bike']}};
+const usd=n=>'US$'+n.toFixed(2);
+/* calendar */
+const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const rows=[['Monthly payment',()=> 'pay',()=> '$'],['Full service & oil',i=>i%3===0?'on':'off',i=>i%3===0?'✓':''],['Spark plug',i=>i%3===0?'on':'off',i=>i%3===0?'✓':''],['New tyres',i=>i%6===0?'on':'off',i=>i%6===0?'✓':'']];
+const cal=$('#cal');
+cal.innerHTML='<div class="mh" role="columnheader"></div>'+['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'].map(m=>`<div class="mh" role="columnheader">${m}</div>`).join('')+
+  rows.map(([l,c,t])=>`<div class="rl" role="rowheader">${l}</div>`+Array.from({length:12},(_,i)=>`<div class="${c(i)}" role="cell">${t(i)}</div>`).join('')).join('');
+/* tabs */
+const tR=$('#t_reg'),tP=$('#t_pay');
+function tab(pay){tR.setAttribute('aria-selected',!pay);tP.setAttribute('aria-selected',pay);tR.tabIndex=pay?-1:0;tP.tabIndex=pay?0:-1;$('#p_reg').hidden=pay;$('#p_pay').hidden=!pay}
+tR.addEventListener('click',()=>tab(false));tP.addEventListener('click',()=>tab(true));
+[tR,tP].forEach(b=>b.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const p=b===tR;tab(p);(p?tP:tR).focus()}}));
+/* plan buttons */
+document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{tab(false);go(1);const r=document.querySelector(`input[name=plan][value=${a.dataset.plan}]`);if(r)r.checked=true}));
+/* register wizard */
+let step=1;
+const now=new Date();const starts=[];for(let k=0;k<4;k++){const d=new Date(now.getFullYear(),now.getMonth()+k,1);starts.push(d.toLocaleString('en-GB',{month:'long',year:'numeric'}))}
+$('#r_start').innerHTML=starts.map(x=>`<option>${x}</option>`).join('');
+const plan=()=>PL[document.querySelector('input[name=plan]:checked').value];
+function fillModels(){const cur=$('#r_model').value;$('#r_model').innerHTML=plan().models.map(m=>`<option>${esc(m)}</option>`).join('');if(plan().models.includes(cur))$('#r_model').value=cur}
+document.querySelectorAll('input[name=plan]').forEach(r=>r.addEventListener('change',fillModels));fillModels();
+const plateNorm=v=>v.toUpperCase().replace(/[^A-Z0-9]/g,'');
+function go(n){step=n;[1,2,3].forEach(k=>$('#r'+k).hidden=k!==n);$('#r_stepLbl').textContent=`Step ${n} of 3`;$('#r_b2').className=n>=2?'done':'';$('#r_b3').className=n>=3?'done':'';
+  $('#r_back').hidden=n===1;$('#r_next').textContent=n===1?'Continue':n===2?'Review':'Send registration on WhatsApp';$('#r_err').textContent='';$('#r_next').hidden=false;if(n<3)$('#r_done').hidden=true}
+$('#r_back').addEventListener('click',()=>go(step-1));
+function reg(){const P=plan();return{P,name:$('#r_name').value.trim(),phone:$('#r_phone').value.trim(),model:$('#r_model').value,plate:$('#r_plate').value.trim(),city:$('#r_city').value.trim(),start:$('#r_start').value,method:document.querySelector('input[name=r_method]:checked').value}}
+$('#p_reg').addEventListener('submit',e=>{e.preventDefault();const err=$('#r_err');
+  if(step===1){fillModels();go(2);$('#r_name').focus();return}
+  if(step===2){const d=reg();
+    if(!d.name){err.textContent='Enter your full name.';$('#r_name').focus();return}
+    if(d.phone.replace(/\D/g,'').length<9){err.textContent='Enter a WhatsApp number Osha can reach you on, for example 0787 388 295.';$('#r_phone').focus();return}
+    if(plateNorm(d.plate).length<4){err.textContent="Enter your bike's number plate so we can link the plan to it.";$('#r_plate').focus();return}
+    const ref=`OSC-${d.P.code}-${plateNorm(d.plate)}`;$('#r_ref').textContent=ref;
+    $('#r_sum').innerHTML=[['Plan',d.P.n],['Bike',`${d.model} · ${d.plate.toUpperCase()}`],['Name',d.name],['WhatsApp',d.phone],['Town',d.city||'Not given'],['Starts',d.start],['Pays by',d.method],['Monthly amount',usd(d.P.p)],['First payment due',usd(d.P.p)]].map(([a,b])=>`<div><span>${esc(a)}</span><span>${esc(b)}</span></div>`).join('');
+    go(3);return}
+  const d=reg();const ref=$('#r_ref').textContent;
+  const msg=`Hello Osha, I'd like to register for a workshop service subscription.\n\nPlan: ${d.P.n} (US$${d.P.p}/month)\nPlan reference: ${ref}\nName: ${d.name}\nWhatsApp: ${d.phone}\nBike: ${d.model}, plate ${d.plate.toUpperCase()}\nTown: ${d.city||'-'}\nStart: ${d.start}\nPayment method: ${d.method}\n\nPlease send me the payment details for my first month.`;
+  const url='https://wa.me/263787388295?text='+encodeURIComponent(msg);
+  const box=$('#r_done');box.hidden=false;$('#r_next').hidden=true;
+  box.innerHTML=`<span>Your registration is ready. Open WhatsApp and press send, and Osha will reply with payment details for your first month.</span><a href="${url}" target="_blank" rel="noopener">Open WhatsApp with my registration →</a><span class="fine">No WhatsApp? Call 0787 388 295 and quote ${esc(ref)}.</span>`;
+});
+/* pay monthly */
+$('#m_months').innerHTML=Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1} month${i?'s':''}</option>`).join('');
+function paySum(){const P=PL[$('#m_plan').value],n=+$('#m_months').value;
+  $('#m_sum').innerHTML=[['Plan',P.n],['Monthly amount',usd(P.p)],['Months',String(n)],['Total to pay',usd(P.p*n)]].map(([a,b])=>`<div><span>${a}</span><span>${b}</span></div>`).join('');$('#m_done').hidden=true}
+['m_plan','m_months'].forEach(id=>$('#'+id).addEventListener('change',paySum));paySum();
+$('#m_ref').addEventListener('input',()=>{const v=$('#m_ref').value.toUpperCase();if(v.startsWith('OSC-150'))$('#m_plan').value='os150';else if(v.startsWith('OSC-200'))$('#m_plan').value='os200';paySum()});
+$('#p_pay').addEventListener('submit',e=>{e.preventDefault();
+  const ref=$('#m_ref').value.trim().toUpperCase(),P=PL[$('#m_plan').value],n=+$('#m_months').value,meth=$('#m_method').value,txn=$('#m_txn').value.trim();
+  if(ref.replace(/[^A-Z0-9]/g,'').length<4){$('#m_err').textContent='Enter your plan reference or number plate so Osha can match the payment.';$('#m_ref').focus();return}
+  $('#m_err').textContent='';
+  const msg=`Hello Osha, I'm paying my workshop subscription.\n\nPlan reference: ${ref}\nPlan: ${P.n}\nMonths: ${n}\nAmount: US$${(P.p*n).toFixed(2)}\nMethod: ${meth}\n`+(txn?`Transaction ID: ${txn}\n\nPlease confirm my payment.`:`\nPlease send me the payment details.`);
+  const url='https://wa.me/263787388295?text='+encodeURIComponent(msg);
+  const box=$('#m_done');box.hidden=false;
+  box.innerHTML=`<span>${txn?'Your payment notice is ready. Send it so Osha can confirm your payment.':'Your payment request is ready. Send it and Osha will reply with payment details.'}</span><a href="${url}" target="_blank" rel="noopener">Open WhatsApp with this message →</a>`;
+});
+})();
+
+/* topic shortcuts */
+document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>{$('#f_topic').value=a.dataset.topic}));
+
+/* copy number */
+$('#copyBtn').addEventListener('click',async()=>{const b=$('#copyBtn');
+  try{await navigator.clipboard.writeText('0787388295');b.textContent='Copied'}
+  catch(e){const r=document.createRange();r.selectNodeContents($('#num'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press copy'}
+  setTimeout(()=>b.textContent='Copy number',2200)});
+
+/* enquiry -> WhatsApp */
+$('#enq').addEventListener('submit',e=>{e.preventDefault();
+  const name=$('#f_name').value.trim(),city=$('#f_city').value.trim(),topic=$('#f_topic').value,msg=$('#f_msg').value.trim();
+  const err=$('#f_err');
+  if(!name){err.textContent='Add your name so Osha knows who is asking.';$('#f_name').focus();return}
+  err.textContent='';
+  const text=`Hello Osha Autotech, my name is ${name}${city?' from '+city:''}. I'm interested in: ${topic}.${msg?'\n\n'+msg:''}`;
+  const url='https://wa.me/263787388295?text='+encodeURIComponent(text);
+  const s=$('#sent');s.hidden=false;
+  s.innerHTML=`<span>Your message is ready. Open WhatsApp to send it to Osha.</span><a href="${url}" target="_blank" rel="noopener">Open WhatsApp with this message →</a><span style="opacity:.8">No WhatsApp? Call or text 0787 388 295.</span>`;
+});
+})();
+
+/* ---- motion layer: reveal, counters, progress, header state, spotlight, hero tilt ---- */
+(()=>{
+const d=document,root=d.documentElement,RM=matchMedia('(prefers-reduced-motion: reduce)').matches,IO='IntersectionObserver' in window;
+const hdr=d.querySelector('.hdr'),hero=d.querySelector('.hero'),bar=d.getElementById('progressBar');
+
+/* scroll progress + header state */
+let ticking=false;
+function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{
+  const max=root.scrollHeight-innerHeight;bar.style.transform=`scaleX(${max>0?Math.min(scrollY/max,1):0})`;
+  hdr.classList.toggle('scrolled',scrollY>8);
+  hdr.classList.toggle('over-hero',hero.getBoundingClientRect().bottom>hdr.offsetHeight);
+  ticking=false})}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+/* scroll reveal with sibling stagger */
+const SEL='.sec-head,.mvg article,.stat,.tile,.bike,.feature-img,.plan,.calendar,.flow-steps li,.desk,.ev-points>div,.cell,.ev-bike,.problem,.phone,.relate,.steps,.stage,.features>div,.benefit,.way,.towns,.care-hero>*,.pillar,.care-steps li,.care-values,.evc,.contact-grid>*,.hero-grid>*';
+const els=[...d.querySelectorAll(SEL)].filter(el=>!el.closest('#shopHold,#bookHold,.eco-panel'));
+if(IO&&!RM){
+  root.classList.add('js');
+  els.forEach(el=>{const sib=[...el.parentElement.children].filter(c=>c.matches(SEL));el.style.setProperty('--d',Math.min(sib.indexOf(el),6)*80+'ms');el.classList.add('reveal')});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px',threshold:.06});
+  els.forEach(el=>io.observe(el));
+}
+
+/* animated counters (final values are already in the markup) */
+if(IO&&!RM)d.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count;el.textContent='0';
+  const o=new IntersectionObserver(([e])=>{if(!e.isIntersecting)return;o.disconnect();const t0=performance.now(),dur=1500;
+    const f=t=>{const p=Math.min((t-t0)/dur,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});o.observe(el)});
+
+/* rotating town in the hero pill */
+const rot=d.getElementById('rot'),towns=['Harare','Chinhoyi','Mhangura','Karoi','Guruve','Mvurwi'];
+if(rot&&!RM){let i=0;setInterval(()=>{if(d.hidden)return;rot.classList.add('out');setTimeout(()=>{i=(i+1)%towns.length;rot.textContent=towns[i];rot.classList.remove('out')},300)},2400)}
+
+/* cursor spotlight on cards */
+const SPOT='.tile,.bike,.plan,.way,.pillar,.evc,.benefit,.ev-bike,.problem,.mvg article,.prod';
+d.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest(SPOT);if(!c)return;const r=c.getBoundingClientRect();
+  c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
+
+/* hero 3D tilt + parallax orbs */
+const frame=d.querySelector('.hero-art .frame'),orbs=[...d.querySelectorAll('.hero-bg .orb')];
+if(frame&&!RM&&matchMedia('(pointer:fine)').matches){
+  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    frame.style.setProperty('--rx',(-y*7).toFixed(2)+'deg');frame.style.setProperty('--ry',(x*9).toFixed(2)+'deg');
+    orbs.forEach((o,k)=>o.style.translate=`${x*(k+1)*-24}px ${y*(k+1)*-18}px`)});
+  hero.addEventListener('pointerleave',()=>{frame.style.setProperty('--rx','0deg');frame.style.setProperty('--ry','0deg')});
+}
+
+/* hide the WhatsApp bubble where it would cover the shop bar or the contact form */
+const fab=d.getElementById('fab');
+if(IO&&fab){const vis=new Set();const o=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));fab.classList.toggle('hide',vis.size>0)},{threshold:.15});
+  ['#contact','#shop','#booking'].forEach(s=>{const el=d.querySelector(s);el&&o.observe(el)})}
+})();
+</script>
+
+</body>
+</html>
